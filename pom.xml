@@ -17,7 +17,7 @@
 		<carina-aws-s3.version>1.0.0</carina-aws-s3.version>
 		<java.version>11</java.version>
 		<zebrunner-agent.version>1.9.2</zebrunner-agent.version>
-		<suite>helloWorld</suite>
+		<suite>OrangeHRM</suite>
 	</properties>
 
 	<repositories>
