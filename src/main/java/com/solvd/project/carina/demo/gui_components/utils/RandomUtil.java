@@ -2,10 +2,10 @@ package com.solvd.project.carina.demo.gui_components.utils;
 
 import java.util.Random;
 
-public class RandomServiceUtil {
+public class RandomUtil {
 
     public String generateRandomString(int length) {
-        String characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+        final String characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
         Random random = new Random();
         StringBuilder sb = new StringBuilder();
 

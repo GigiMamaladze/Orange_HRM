@@ -1,6 +1,7 @@
 package com.solvd.project.carina.demo.gui.pages;
 
 import com.qaprosoft.carina.core.foundation.webdriver.decorator.ExtendedWebElement;
+import com.qaprosoft.carina.core.foundation.webdriver.decorator.PageOpeningStrategy;
 import com.qaprosoft.carina.core.gui.AbstractPage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
@@ -18,11 +19,8 @@ public class PasswordResetCodePage extends AbstractPage {
 
     public PasswordResetCodePage(WebDriver driver) {
         super(driver);
-    }
-
-    @Override
-    public boolean isPageOpened() {
-        return resetPasswordFormTitle.isElementPresent();
+        setPageOpeningStrategy(PageOpeningStrategy.BY_ELEMENT);
+        setUiLoadedMarker(resetPasswordFormTitle);
     }
 
     public void typeUserName(String userName) {

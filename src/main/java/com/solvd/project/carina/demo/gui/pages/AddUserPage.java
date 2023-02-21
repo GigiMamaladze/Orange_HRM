@@ -1,6 +1,7 @@
 package com.solvd.project.carina.demo.gui.pages;
 
 import com.qaprosoft.carina.core.foundation.webdriver.decorator.ExtendedWebElement;
+import com.qaprosoft.carina.core.foundation.webdriver.decorator.PageOpeningStrategy;
 import com.qaprosoft.carina.core.gui.AbstractPage;
 import com.solvd.project.carina.demo.gui_components.enums.UserRole;
 import com.solvd.project.carina.demo.gui_components.enums.UserStatus;
@@ -42,16 +43,13 @@ public class AddUserPage extends AbstractPage {
     @FindBy(xpath = "//*[@type = 'submit']")
     private ExtendedWebElement saveBtn;
 
-    @FindBy(css = ".oxd-text--toast-message")
+    @FindBy(xpath = "//*[text() = 'Successfully Saved']")
     private ExtendedWebElement successSaveMessage;
 
     public AddUserPage(WebDriver driver) {
         super(driver);
-    }
-
-    @Override
-    public boolean isPageOpened() {
-        return formTitle.isElementPresent();
+        setPageOpeningStrategy(PageOpeningStrategy.BY_ELEMENT);
+        setUiLoadedMarker(formTitle);
     }
 
     public void clickUserRoleArrowDownBtn() {

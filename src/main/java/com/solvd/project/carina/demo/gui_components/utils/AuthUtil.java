@@ -5,12 +5,12 @@ import com.solvd.project.carina.demo.gui.pages.DashboardPage;
 import com.solvd.project.carina.demo.gui.pages.LogInPage;
 import org.testng.Assert;
 
-public class AutoServiceUtil extends AbstractTest {
+public class AuthUtil extends AbstractTest {
 
     public DashboardPage logIn(String userName, String password) {
         LogInPage logInPage = new LogInPage(getDriver());
         logInPage.open();
-        Assert.assertTrue(logInPage.isPageOpened(), "Log in page is opened");
+        Assert.assertTrue(logInPage.isPageOpened(), "Log in page is not opened");
         logInPage.typeUserName(userName);
         logInPage.typePassword(password);
         DashboardPage dashboardPage = logInPage.clickLogInButton();

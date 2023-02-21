@@ -39,7 +39,7 @@ public class OrangeHRMTest extends AbstractOrangeHRMTest {
     @Test
     @MethodOwner(owner = "Gigi")
     public void changePasswordTest() {
-        DashboardPage dashboardPage = autoServiceUtil.logIn(R.TESTDATA.get("userName"),
+        DashboardPage dashboardPage = authUtil.logIn(R.TESTDATA.get("userName"),
                 R.TESTDATA.get("password"));
         dashboardPage.topBarMenu.clickUserNameArrowIcon();
         UpdatePasswordPage updatePasswordPage = dashboardPage.getTopBarMenu().clickChangePasswordBtn();
@@ -54,13 +54,13 @@ public class OrangeHRMTest extends AbstractOrangeHRMTest {
     @Test
     @MethodOwner(owner = "Gigi")
     public void addUserTest() {
-        DashboardPage dashboardPage = autoServiceUtil.logIn(R.TESTDATA.get("userName"),
+        DashboardPage dashboardPage = authUtil.logIn(R.TESTDATA.get("userName"),
                 R.TESTDATA.get("password"));
         UserManagementPage userManagementPage = dashboardPage.getNavBarMenu().clickAdminLabel();
         Assert.assertTrue(userManagementPage.isPageOpened(), "User management page is not opened");
         AddUserPage addUserPage = userManagementPage.clickAddUserBtn();
         Assert.assertTrue(addUserPage.isPageOpened(), "Add user page is not opened");
-        addUserPage.typeUserName(randomServiceUtil.generateRandomString(10));
+        addUserPage.typeUserName(randomUtil.generateRandomString(10));
         addUserPage.typeEmployeeName(R.TESTDATA.get("employee"));
         addUserPage.clickSearchedEmployee(R.TESTDATA.get("employee"));
         addUserPage.clickUserRoleArrowDownBtn();
@@ -76,7 +76,7 @@ public class OrangeHRMTest extends AbstractOrangeHRMTest {
     @Test
     @MethodOwner(owner = "Gigi")
     public void systemUserSearchTest() {
-        DashboardPage dashboardPage = autoServiceUtil.logIn(R.TESTDATA.get("userName"),
+        DashboardPage dashboardPage = authUtil.logIn(R.TESTDATA.get("userName"),
                 R.TESTDATA.get("password"));
         UserManagementPage userManagementPage = dashboardPage.getNavBarMenu().clickAdminLabel();
         Assert.assertTrue(userManagementPage.isPageOpened(), "User management page is not opened");

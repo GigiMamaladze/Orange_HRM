@@ -1,12 +1,12 @@
 package com.solvd.project.carina.demo.gui_components.abstractclass;
 
 import com.qaprosoft.carina.core.foundation.AbstractTest;
-import com.solvd.project.carina.demo.gui_components.utils.AutoServiceUtil;
-import com.solvd.project.carina.demo.gui_components.utils.RandomServiceUtil;
+import com.solvd.project.carina.demo.gui_components.utils.AuthUtil;
+import com.solvd.project.carina.demo.gui_components.utils.RandomUtil;
 
 public abstract class AbstractOrangeHRMTest extends AbstractTest {
 
-    public AutoServiceUtil autoServiceUtil = new AutoServiceUtil();
+    public AuthUtil authUtil = new AuthUtil();
 
-    public RandomServiceUtil randomServiceUtil = new RandomServiceUtil();
+    public RandomUtil randomUtil = new RandomUtil();
 }

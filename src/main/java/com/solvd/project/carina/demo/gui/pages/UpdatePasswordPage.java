@@ -1,6 +1,7 @@
 package com.solvd.project.carina.demo.gui.pages;
 
 import com.qaprosoft.carina.core.foundation.webdriver.decorator.ExtendedWebElement;
+import com.qaprosoft.carina.core.foundation.webdriver.decorator.PageOpeningStrategy;
 import com.qaprosoft.carina.core.gui.AbstractPage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
@@ -22,16 +23,13 @@ public class UpdatePasswordPage extends AbstractPage {
     @FindBy(xpath = "//*[@type = 'submit']")
     private ExtendedWebElement saveBtn;
 
-    @FindBy(css = ".oxd-text--toast-message")
+    @FindBy(xpath = "//*[text() = 'Successfully Saved']")
     private ExtendedWebElement successSaveMessage;
 
     public UpdatePasswordPage(WebDriver driver) {
         super(driver);
-    }
-
-    @Override
-    public boolean isPageOpened() {
-        return updatePasswordFormTitle.isElementPresent();
+        setPageOpeningStrategy(PageOpeningStrategy.BY_ELEMENT);
+        setUiLoadedMarker(updatePasswordFormTitle);
     }
 
     public void typeCurrentPassword(String currentPassword) {

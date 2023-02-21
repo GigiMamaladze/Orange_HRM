@@ -6,10 +6,17 @@
     <parameter name="jenkinsJobType" value="web"/>
 
     <parameter name="jenkinsEnvironments" value="DEMO"/>
-
     <test name="Orange_HRM web test">
         <classes>
-            <class name="com.solvd.project.carina.demo.OrangeHRMTest" />
+            <class name="com.solvd.project.carina.demo.OrangeHRMTest">
+                <methods>
+                    <include name="logInTest"/>
+                    <include name="resetPasswordTest"/>
+                    <include name="changePasswordTest"/>
+                    <include name="addUserTest"/>
+                    <include name="systemUserSearchTest"/>
+                </methods>
+            </class>
         </classes>
     </test>
 
