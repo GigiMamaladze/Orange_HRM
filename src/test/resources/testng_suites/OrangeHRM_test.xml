@@ -1,0 +1,27 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite verbose="1" name="Orange HRM - web tests" parallel="methods">
+
+    <parameter name="suiteOwner" value="qpsdemo"/>
+    <parameter name="jenkinsJobName" value="Orange HRM web test"/>
+    <parameter name="jenkinsJobType" value="web"/>
+    <parameter name="jenkinsEnvironments" value="DEMO"/>
+
+    <test name="Orange_HRM web test">
+        <classes>
+            <class name="com.solvd.project.carina.demo.AdminServiceTest">
+                <methods>
+                    <include name="addUserTest"/>
+                    <include name="systemUserSearchTest"/>
+                </methods>
+            </class>
+            <class name="com.solvd.project.carina.demo.AuthenticationTest">
+                <methods>
+                    <include name="logInTest"/>
+                    <include name="resetPasswordTest"/>
+                    <include name="changePasswordTest"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+</suite>
