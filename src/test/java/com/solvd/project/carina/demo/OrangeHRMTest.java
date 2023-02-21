@@ -39,8 +39,7 @@ public class OrangeHRMTest extends AbstractOrangeHRMTest {
     @Test
     @MethodOwner(owner = "Gigi")
     public void changePasswordTest() {
-        DashboardPage dashboardPage = authUtil.logIn(R.TESTDATA.get("userName"),
-                R.TESTDATA.get("password"));
+        DashboardPage dashboardPage = authUtil.logInDefaultUser();
         dashboardPage.topBarMenu.clickUserNameArrowIcon();
         UpdatePasswordPage updatePasswordPage = dashboardPage.getTopBarMenu().clickChangePasswordBtn();
         Assert.assertTrue(updatePasswordPage.isPageOpened(), "Update password page is not opened");
@@ -54,15 +53,14 @@ public class OrangeHRMTest extends AbstractOrangeHRMTest {
     @Test
     @MethodOwner(owner = "Gigi")
     public void addUserTest() {
-        DashboardPage dashboardPage = authUtil.logIn(R.TESTDATA.get("userName"),
-                R.TESTDATA.get("password"));
+        DashboardPage dashboardPage = authUtil.logInDefaultUser();
         UserManagementPage userManagementPage = dashboardPage.getNavBarMenu().clickAdminLabel();
         Assert.assertTrue(userManagementPage.isPageOpened(), "User management page is not opened");
         AddUserPage addUserPage = userManagementPage.clickAddUserBtn();
         Assert.assertTrue(addUserPage.isPageOpened(), "Add user page is not opened");
         addUserPage.typeUserName(randomUtil.generateRandomString(10));
-        addUserPage.typeEmployeeName(R.TESTDATA.get("employee"));
-        addUserPage.clickSearchedEmployee(R.TESTDATA.get("employee"));
+        addUserPage.typeEmployeeName(R.TESTDATA.get("employeeName"));
+        addUserPage.clickSearchedEmployee(R.TESTDATA.get("employeeName"));
         addUserPage.clickUserRoleArrowDownBtn();
         addUserPage.clickUserRole(UserRole.ADMIN);
         addUserPage.clickUserStatusArrowDownBtn();
@@ -76,8 +74,7 @@ public class OrangeHRMTest extends AbstractOrangeHRMTest {
     @Test
     @MethodOwner(owner = "Gigi")
     public void systemUserSearchTest() {
-        DashboardPage dashboardPage = authUtil.logIn(R.TESTDATA.get("userName"),
-                R.TESTDATA.get("password"));
+        DashboardPage dashboardPage = authUtil.logInDefaultUser();
         UserManagementPage userManagementPage = dashboardPage.getNavBarMenu().clickAdminLabel();
         Assert.assertTrue(userManagementPage.isPageOpened(), "User management page is not opened");
         String userName = "Admin";
