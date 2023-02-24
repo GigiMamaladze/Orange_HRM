@@ -1,14 +1,14 @@
-package com.solvd.project.carina.demo.gui.pages;
+package com.solvd.project.carina.demo.gui.pages.admin.usermenagement;
 
 import com.qaprosoft.carina.core.foundation.webdriver.decorator.ExtendedWebElement;
 import com.qaprosoft.carina.core.foundation.webdriver.decorator.PageOpeningStrategy;
-import com.qaprosoft.carina.core.gui.AbstractPage;
+import com.solvd.project.carina.demo.gui_components.abstractclass.AbstractOrangeHRMPage;
 import com.solvd.project.carina.demo.gui_components.enums.UserRole;
 import com.solvd.project.carina.demo.gui_components.enums.UserStatus;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
 
-public class AddUserPage extends AbstractPage {
+public class AddUserPage extends AbstractOrangeHRMPage {
 
     @FindBy(xpath = "//*[text() = 'Add User']")
     private ExtendedWebElement formTitle;
@@ -42,9 +42,6 @@ public class AddUserPage extends AbstractPage {
 
     @FindBy(xpath = "//*[@type = 'submit']")
     private ExtendedWebElement saveBtn;
-
-    @FindBy(xpath = "//*[text() = 'Successfully Saved']")
-    private ExtendedWebElement successSaveMessage;
 
     public AddUserPage(WebDriver driver) {
         super(driver);
@@ -86,10 +83,6 @@ public class AddUserPage extends AbstractPage {
 
     public void typeConfirmPassword(String password) {
         confirmPasswordTextField.type(password);
-    }
-
-    public boolean isSuccessSaveMessage() {
-        return successSaveMessage.isElementPresent();
     }
 
     public void clickSaveBtn() {

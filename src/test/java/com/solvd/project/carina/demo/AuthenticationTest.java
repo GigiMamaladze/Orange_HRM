@@ -38,13 +38,14 @@ public class AuthenticationTest extends AbstractOrangeHRMTest {
     @MethodOwner(owner = "Gigi")
     public void changePasswordTest() {
         DashboardPage dashboardPage = authUtil.logInDefaultUser();
-        dashboardPage.topBarMenu.clickUserNameArrowIcon();
+        dashboardPage.getTopBarMenu().clickUserNameArrowIcon();
         UpdatePasswordPage updatePasswordPage = dashboardPage.getTopBarMenu().clickChangePasswordBtn();
         Assert.assertTrue(updatePasswordPage.isPageOpened(), "Update password page is not opened");
         updatePasswordPage.typeCurrentPassword(R.TESTDATA.get("password"));
         updatePasswordPage.typeNewPassword(R.TESTDATA.get("newPassword"));
         updatePasswordPage.confirmPassword(R.TESTDATA.get("newPassword"));
         updatePasswordPage.clickSaveBtn();
-        Assert.assertTrue(updatePasswordPage.isSuccessSaveMessage(), "Password is not changed successfully");
+        Assert.assertTrue(updatePasswordPage.getNotificationMessage()
+                .isSuccessSaveMessagePresent(), "Password is not changed successfully");
     }
 }
