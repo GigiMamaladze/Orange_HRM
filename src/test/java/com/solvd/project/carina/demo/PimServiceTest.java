@@ -4,7 +4,6 @@ import com.solvd.project.carina.demo.gui.pages.DashboardPage;
 import com.solvd.project.carina.demo.gui.pages.pim.AddEmployeePage;
 import com.solvd.project.carina.demo.gui.pages.pim.EmployeeListPage;
 import com.solvd.project.carina.demo.gui.pages.pim.PersonalDetailsPage;
-import com.solvd.project.carina.demo.gui_components.abstractclass.AbstractOrangeHRMTest;
 import com.solvd.project.carina.demo.gui_components.enums.MenuOption;
 import com.solvd.project.carina.demo.gui_components.exceptions.NoPageExistInMenuException;
 import com.zebrunner.carina.core.registrar.ownership.MethodOwner;
@@ -18,21 +17,19 @@ public class PimServiceTest extends AbstractOrangeHRMTest {
     @MethodOwner(owner = "Gigi")
     public void addEmployeeTest() {
         DashboardPage dashboardPage = authUtil.logInDefaultUser();
-        EmployeeListPage employeeListPage = dashboardPage.getNavBarMenu().clickPimLabel();
+        EmployeeListPage employeeListPage = dashboardPage.getLeftBarMenu().clickPimLabel();
         Assert.assertTrue(employeeListPage.isPageOpened(), "Employee list page is not opened");
-        AddEmployeePage addEmployeePage = employeeListPage.getPimNavBarMenu().clickAddEmployeeSection();
+        AddEmployeePage addEmployeePage = employeeListPage.getTopBarMenu().clickAddEmployeeSection();
         Assert.assertTrue(addEmployeePage.isPageOpened(), "Add employee page is not opened");
         String firstName = "Gigi";
-        String middleName = "Gigi";
-        String lastName = "Gigi";
+        String lastName = "Mamaladze";
         addEmployeePage.typeFirstName(firstName);
-        addEmployeePage.typeMiddleName(middleName);
         addEmployeePage.typeLastName(lastName);
         String id = addEmployeePage.getEmployeeId();
         PersonalDetailsPage personalDetailsPage = addEmployeePage.clickSaveBtn();
-        Assert.assertTrue(addEmployeePage.getNotificationMessage().isSuccessSaveMessagePresent(), "Employee is not saved");
+        Assert.assertTrue(addEmployeePage.isSuccessSaveMessagePresent(), "Employee is not saved");
         Assert.assertTrue(personalDetailsPage.isPageOpened(), "Personal details page is not opened");
-        employeeListPage = personalDetailsPage.getPimNavBarMenu().clickEmployeeListSection();
+        employeeListPage = personalDetailsPage.getTopBarMenu().clickEmployeeListSection();
         Assert.assertTrue(employeeListPage.isPageOpened(), "Employee List page is not opened");
         Assert.assertTrue(employeeListPage.isEmployeeIdPresent(id), "Employee is not present in list");
     }

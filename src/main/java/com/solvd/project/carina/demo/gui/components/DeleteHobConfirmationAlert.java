@@ -6,16 +6,16 @@ import org.openqa.selenium.SearchContext;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
 
-public class JobDeleteOptionPanel extends AbstractUIObject {
+public class DeleteHobConfirmationAlert extends AbstractUIObject {
 
     @FindBy(xpath = "//button[text() = ' Yes, Delete ']")
     private ExtendedWebElement yesDeleteBtn;
 
-    public JobDeleteOptionPanel(WebDriver driver) {
+    public DeleteHobConfirmationAlert(WebDriver driver) {
         super(driver);
     }
 
-    public JobDeleteOptionPanel(WebDriver driver, SearchContext searchContext) {
+    public DeleteHobConfirmationAlert(WebDriver driver, SearchContext searchContext) {
         super(driver, searchContext);
     }
 

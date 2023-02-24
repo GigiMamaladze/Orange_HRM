@@ -11,9 +11,6 @@ public class AddJobTitlePage extends AbstractOrangeHRMPage {
     @FindBy(xpath = "//*[text() = 'Add Job Title']")
     private ExtendedWebElement formTitle;
 
-    @FindBy(xpath = "//*[text() = 'Successfully Saved']")
-    private ExtendedWebElement successSaveMessage;
-
     @FindBy(xpath = "//*[text() = 'Job Title']/ancestor::div[contains(@class, 'oxd-input-field')]//input")
     private ExtendedWebElement jobTitleTextField;
 

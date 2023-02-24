@@ -2,15 +2,11 @@ package com.solvd.project.carina.demo.gui.pages.pim;
 
 import com.qaprosoft.carina.core.foundation.webdriver.decorator.ExtendedWebElement;
 import com.qaprosoft.carina.core.foundation.webdriver.decorator.PageOpeningStrategy;
-import com.solvd.project.carina.demo.gui.components.navbars.PimNavBarMenu;
 import com.solvd.project.carina.demo.gui_components.abstractclass.AbstractOrangeHRMPage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
 
 public class AddEmployeePage extends AbstractOrangeHRMPage {
-
-    @FindBy(css = ".oxd-topbar-body-nav")
-    private PimNavBarMenu pimNavBarMenu;
 
     @FindBy(xpath = "//h6[text() = 'Add Employee']")
     private ExtendedWebElement formTitle;
@@ -38,10 +34,6 @@ public class AddEmployeePage extends AbstractOrangeHRMPage {
 
     public String getEmployeeId() {
         return employeeIdTextField.getText();
-    }
-
-    public PimNavBarMenu getPimNavBarMenu() {
-        return pimNavBarMenu;
     }
 
     public void typeFirstName(String firstName) {

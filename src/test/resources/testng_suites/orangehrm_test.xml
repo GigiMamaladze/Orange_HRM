@@ -8,6 +8,12 @@
 
     <test name="Orange_HRM web test">
         <classes>
+            <class name="com.solvd.project.carina.demo.PimServiceTest">
+                <methods>
+                    <include name="addEmployeeTest"/>
+                    <include name="searchEmployeeTest"/>
+                </methods>
+            </class>
             <class name="com.solvd.project.carina.demo.AdminServiceTest">
                 <methods>
                     <include name="addUserTest"/>
@@ -22,12 +28,6 @@
                     <include name="logInTest"/>
                     <include name="resetPasswordTest"/>
                     <include name="changePasswordTest"/>
-                </methods>
-            </class>
-            <class name="com.solvd.project.carina.demo.PimServiceTest">
-                <methods>
-                    <include name="addEmployeeTest"/>
-                    <include name="searchEmployeeTest"/>
                 </methods>
             </class>
         </classes>

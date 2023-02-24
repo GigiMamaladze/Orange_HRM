@@ -1,4 +1,4 @@
-package com.solvd.project.carina.demo.gui_components.abstractclass;
+package com.solvd.project.carina.demo;
 
 import com.qaprosoft.carina.core.foundation.AbstractTest;
 import com.solvd.project.carina.demo.gui_components.utils.AdminUtil;

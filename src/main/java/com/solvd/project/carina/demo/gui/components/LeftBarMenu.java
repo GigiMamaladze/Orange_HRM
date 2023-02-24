@@ -8,7 +8,7 @@ import org.openqa.selenium.SearchContext;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
 
-public class NavBarMenu extends AbstractUIObject {
+public class LeftBarMenu extends AbstractUIObject {
 
     @FindBy(xpath = "//*[@class = 'oxd-main-menu-item']//*[text() = 'Admin']")
     private ExtendedWebElement adminLabel;
@@ -16,11 +16,11 @@ public class NavBarMenu extends AbstractUIObject {
     @FindBy(xpath = "//*[@class = 'oxd-main-menu-item']//*[text() = 'PIM']")
     private ExtendedWebElement pimLabel;
 
-    public NavBarMenu(WebDriver driver) {
+    public LeftBarMenu(WebDriver driver) {
         super(driver);
     }
 
-    public NavBarMenu(WebDriver driver, SearchContext searchContext) {
+    public LeftBarMenu(WebDriver driver, SearchContext searchContext) {
         super(driver, searchContext);
     }
 

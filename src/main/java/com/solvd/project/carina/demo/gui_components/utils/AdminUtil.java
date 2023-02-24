@@ -10,7 +10,6 @@ public class AdminUtil extends AbstractTest {
         AddJobTitlePage addJobTitlePage = new AddJobTitlePage(getDriver());
         addJobTitlePage.typeJobTitle(jobTitle);
         addJobTitlePage.clickSaveBtn();
-        Assert.assertTrue(addJobTitlePage.getNotificationMessage()
-                .isSuccessSaveMessagePresent(), "Job is not created");
+        Assert.assertTrue(addJobTitlePage.isSuccessSaveMessagePresent(), "Job is not created");
     }
 }

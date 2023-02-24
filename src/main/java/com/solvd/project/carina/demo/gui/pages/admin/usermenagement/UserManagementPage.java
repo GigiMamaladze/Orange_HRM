@@ -2,15 +2,11 @@ package com.solvd.project.carina.demo.gui.pages.admin.usermenagement;
 
 import com.qaprosoft.carina.core.foundation.webdriver.decorator.ExtendedWebElement;
 import com.qaprosoft.carina.core.foundation.webdriver.decorator.PageOpeningStrategy;
-import com.solvd.project.carina.demo.gui.components.navbars.AdminNavBarMenu;
 import com.solvd.project.carina.demo.gui_components.abstractclass.AbstractOrangeHRMPage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
 
 public class UserManagementPage extends AbstractOrangeHRMPage {
-
-    @FindBy(css = ".oxd-topbar-body-nav")
-    private AdminNavBarMenu adminNavBarMenu;
 
     @FindBy(xpath = "//*[@class = 'oxd-topbar-header-breadcrumb']//*[text() = 'User Management']")
     private ExtendedWebElement pageTitle;
@@ -48,9 +44,5 @@ public class UserManagementPage extends AbstractOrangeHRMPage {
 
     public void clickSearchBtn() {
         searchBtn.click();
-    }
-
-    public AdminNavBarMenu getAdminNavBarMenu() {
-        return adminNavBarMenu;
     }
 }

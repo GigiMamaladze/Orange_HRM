@@ -1,7 +1,6 @@
 package com.solvd.project.carina.demo;
 
 import com.solvd.project.carina.demo.gui.pages.*;
-import com.solvd.project.carina.demo.gui_components.abstractclass.AbstractOrangeHRMTest;
 import com.zebrunner.carina.core.registrar.ownership.MethodOwner;
 import com.zebrunner.carina.utils.R;
 import org.testng.Assert;
@@ -45,7 +44,6 @@ public class AuthenticationTest extends AbstractOrangeHRMTest {
         updatePasswordPage.typeNewPassword(R.TESTDATA.get("newPassword"));
         updatePasswordPage.confirmPassword(R.TESTDATA.get("newPassword"));
         updatePasswordPage.clickSaveBtn();
-        Assert.assertTrue(updatePasswordPage.getNotificationMessage()
-                .isSuccessSaveMessagePresent(), "Password is not changed successfully");
+        Assert.assertTrue(updatePasswordPage.isSuccessSaveMessagePresent(), "Password is not changed successfully");
     }
 }

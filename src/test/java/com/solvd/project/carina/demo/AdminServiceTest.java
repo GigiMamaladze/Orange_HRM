@@ -1,13 +1,12 @@
 package com.solvd.project.carina.demo;
 
-import com.solvd.project.carina.demo.gui.components.JobDeleteOptionPanel;
+import com.solvd.project.carina.demo.gui.components.DeleteHobConfirmationAlert;
 import com.solvd.project.carina.demo.gui.pages.DashboardPage;
 import com.solvd.project.carina.demo.gui.pages.admin.job.AddJobTitlePage;
 import com.solvd.project.carina.demo.gui.pages.admin.job.JobTitlePage;
 import com.solvd.project.carina.demo.gui.pages.admin.organization.GeneralInformationPage;
 import com.solvd.project.carina.demo.gui.pages.admin.usermenagement.AddUserPage;
 import com.solvd.project.carina.demo.gui.pages.admin.usermenagement.UserManagementPage;
-import com.solvd.project.carina.demo.gui_components.abstractclass.AbstractOrangeHRMTest;
 import com.solvd.project.carina.demo.gui_components.enums.MenuOption;
 import com.solvd.project.carina.demo.gui_components.enums.UserRole;
 import com.solvd.project.carina.demo.gui_components.enums.UserStatus;
@@ -24,7 +23,7 @@ public class AdminServiceTest extends AbstractOrangeHRMTest {
     @MethodOwner(owner = "Gigi")
     public void addUserTest() {
         DashboardPage dashboardPage = authUtil.logInDefaultUser();
-        UserManagementPage userManagementPage = dashboardPage.getNavBarMenu()
+        UserManagementPage userManagementPage = dashboardPage.getLeftBarMenu()
                 .clickAdminLabel();
         Assert.assertTrue(userManagementPage.isPageOpened(), "User management page is not opened");
         AddUserPage addUserPage = userManagementPage.clickAddUserBtn();
@@ -39,8 +38,7 @@ public class AdminServiceTest extends AbstractOrangeHRMTest {
         addUserPage.typePassword(R.TESTDATA.get("newPassword"));
         addUserPage.typeConfirmPassword(R.TESTDATA.get("newPassword"));
         addUserPage.clickSaveBtn();
-        Assert.assertTrue(addUserPage.getNotificationMessage()
-                .isSuccessSaveMessagePresent(), "User is not added");
+        Assert.assertTrue(addUserPage.isSuccessSaveMessagePresent(), "User is not added");
     }
 
     @Test
@@ -59,8 +57,8 @@ public class AdminServiceTest extends AbstractOrangeHRMTest {
     public void addJobTitleTest() throws NoPageExistInMenuException {
         authUtil.logInDefaultUser();
         UserManagementPage userManagementPage = (UserManagementPage) navigationUtil.openPage(MenuOption.ADMIN_DEFAULT);
-        userManagementPage.getAdminNavBarMenu().clickJobSection();
-        JobTitlePage jobTitlePage = userManagementPage.getAdminNavBarMenu()
+        userManagementPage.getTopBarMenu().clickJobSection();
+        JobTitlePage jobTitlePage = userManagementPage.getTopBarMenu()
                 .clickJobTitleLabel();
         Assert.assertTrue(jobTitlePage.isPageOpened(), "Job Title page is not opened");
         AddJobTitlePage addJobTitlePage = jobTitlePage.clickAddBtn();
@@ -68,8 +66,7 @@ public class AdminServiceTest extends AbstractOrangeHRMTest {
         String jobTitle = randomUtil.generateRandomString(8);
         addJobTitlePage.typeJobTitle(jobTitle);
         addJobTitlePage.clickSaveBtn();
-        Assert.assertTrue(addJobTitlePage.getNotificationMessage()
-                .isSuccessSaveMessagePresent(), "Job is not created");
+        Assert.assertTrue(addJobTitlePage.isSuccessSaveMessagePresent(), "Job is not created");
         Assert.assertTrue(jobTitlePage.isJobTitlePresent(jobTitle), "Job title is not exist in list");
     }
 
@@ -85,10 +82,9 @@ public class AdminServiceTest extends AbstractOrangeHRMTest {
         Assert.assertTrue(jobTitlePage.isJobTitlePresent(jobTitle), "Job title is not exist in list");
         jobTitlePage.scrollToJobTitle(jobTitle);
         jobTitlePage.deleteJobTitle(jobTitle);
-        JobDeleteOptionPanel jobDeleteOptionPanel = new JobDeleteOptionPanel(getDriver());
-        jobDeleteOptionPanel.clickYesDeleteBtn();
-        Assert.assertTrue(jobTitlePage.getNotificationMessage()
-                .isSuccessDeleteMessagePresent(), "Job is not deleted");
+        DeleteHobConfirmationAlert deleteHobConfirmationAlert = new DeleteHobConfirmationAlert(getDriver());
+        deleteHobConfirmationAlert.clickYesDeleteBtn();
+        Assert.assertTrue(jobTitlePage.isSuccessDeleteMessagePresent(), "Job is not deleted");
         Assert.assertFalse(jobTitlePage.isJobTitlePresent(jobTitle), "Job title exist in list");
     }
 
@@ -97,19 +93,18 @@ public class AdminServiceTest extends AbstractOrangeHRMTest {
     public void generalInformationEditTest() throws NoPageExistInMenuException, UnknownOsException {
         authUtil.logInDefaultUser();
         UserManagementPage userManagementPage = (UserManagementPage) navigationUtil.openPage(MenuOption.ADMIN_DEFAULT);
-        userManagementPage.getAdminNavBarMenu().clickOrganizationSection();
-        GeneralInformationPage generalInformationPage = userManagementPage.getAdminNavBarMenu()
-                .clickGeneralInformation();
+        userManagementPage.getTopBarMenu().clickOrganizationSection();
+        GeneralInformationPage generalInformationPage = userManagementPage.getTopBarMenu()
+                .clickGeneralInformationLabel();
         Assert.assertTrue(generalInformationPage.isPageOpened(), "General information page is not opened");
         generalInformationPage.clickEditSwitchBtn();
         String registrationNumber = "1234";
         generalInformationPage.clearRegistrationNumber();
         generalInformationPage.typeRegistrationNumber(registrationNumber);
-        generalInformationPage.scrollToSaveBtn();
         generalInformationPage.clickSaveBtn();
-        Assert.assertTrue(generalInformationPage.getNotificationMessage().isSuccessUpdateMessagePresent(),
+        Assert.assertTrue(generalInformationPage.isSuccessUpdateMessagePresent(),
                 "General Information is not changed");
-        generalInformationPage.scrollToEditBtn();
+        generalInformationPage.scrollToRegistrationTextField();
         Assert.assertEquals(generalInformationPage.getRegistrationNumber(), registrationNumber,
                 "Registration number is not changed");
     }

@@ -2,7 +2,6 @@ package com.solvd.project.carina.demo.gui.pages.pim;
 
 import com.qaprosoft.carina.core.foundation.webdriver.decorator.ExtendedWebElement;
 import com.qaprosoft.carina.core.foundation.webdriver.decorator.PageOpeningStrategy;
-import com.solvd.project.carina.demo.gui.components.navbars.PimNavBarMenu;
 import com.solvd.project.carina.demo.gui_components.abstractclass.AbstractOrangeHRMPage;
 import com.solvd.project.carina.demo.gui_components.utils.StringUtil;
 import org.apache.logging.log4j.LogManager;
@@ -13,9 +12,6 @@ import org.openqa.selenium.support.FindBy;
 public class EmployeeListPage extends AbstractOrangeHRMPage {
 
     private static final Logger LOGGER = LogManager.getLogger(EmployeeListPage.class);
-
-    @FindBy(css = ".oxd-topbar-body-nav")
-    private PimNavBarMenu pimNavBarMenu;
 
     @FindBy(xpath = "//*[text() = 'Employee Information']")
     private ExtendedWebElement formTitle;
@@ -36,10 +32,6 @@ public class EmployeeListPage extends AbstractOrangeHRMPage {
         super(driver);
         setPageOpeningStrategy(PageOpeningStrategy.BY_ELEMENT);
         setUiLoadedMarker(formTitle);
-    }
-
-    public PimNavBarMenu getPimNavBarMenu() {
-        return pimNavBarMenu;
     }
 
     public boolean isEmployeeIdPresent(String id) {

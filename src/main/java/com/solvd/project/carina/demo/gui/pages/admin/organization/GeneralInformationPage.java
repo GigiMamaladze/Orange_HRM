@@ -34,17 +34,16 @@ public class GeneralInformationPage extends AbstractOrangeHRMPage {
     }
 
     public void clickEditSwitchBtn() {
+        editSwitchBtn.scrollTo();
         editSwitchBtn.click();
     }
 
     public void clearRegistrationNumber() throws UnknownOsException {
         String osName = SystemUtil.getSystemOsName();
-        if (osName.startsWith("Windows") && osName.startsWith("Linux")) {
+        if (osName.equals("Windows") || osName.equals("Linux")) {
             registrationNumberTextField.getElement().sendKeys(Keys.CONTROL + "a");
-        } else if (osName.startsWith("Mac")) {
-            registrationNumberTextField.getElement().sendKeys(Keys.COMMAND + "a");
         } else {
-            throw new UnknownOsException("Unknown os name");
+            registrationNumberTextField.getElement().sendKeys(Keys.COMMAND + "a");
         }
         registrationNumberTextField.getElement().sendKeys(Keys.DELETE);
     }
@@ -54,15 +53,12 @@ public class GeneralInformationPage extends AbstractOrangeHRMPage {
     }
 
     public void clickSaveBtn() {
+        saveBtn.scrollTo();
         saveBtn.click();
     }
 
-    public void scrollToSaveBtn() {
-        saveBtn.scrollTo();
-    }
-
-    public void scrollToEditBtn() {
-        editSwitchBtn.scrollTo();
+    public void scrollToRegistrationTextField() {
+        registrationNumberTextField.scrollTo();
     }
 
     public String getRegistrationNumber() {

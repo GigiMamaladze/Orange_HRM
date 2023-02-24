@@ -16,22 +16,22 @@ public class NavigationUtil extends AbstractTest {
     private UserManagementPage loadDefaultAdminPage() {
         DashboardPage dashboardPage = new DashboardPage(getDriver());
         Assert.assertTrue(dashboardPage.isPageOpened(), "Dashboard page is not opened. user is not logged in");
-        UserManagementPage userManagementPage = dashboardPage.getNavBarMenu().clickAdminLabel();
+        UserManagementPage userManagementPage = dashboardPage.getLeftBarMenu().clickAdminLabel();
         Assert.assertTrue(userManagementPage.isPageOpened(), "User management page is not opened");
         return userManagementPage;
     }
 
     private JobTitlePage loadJobTitlePage() {
         UserManagementPage userManagementPage = loadDefaultAdminPage();
-        userManagementPage.getAdminNavBarMenu().clickJobSection();
-        JobTitlePage jobTitlePage = userManagementPage.getAdminNavBarMenu().clickJobTitleLabel();
+        userManagementPage.getTopBarMenu().clickJobSection();
+        JobTitlePage jobTitlePage = userManagementPage.getTopBarMenu().clickJobTitleLabel();
         Assert.assertTrue(jobTitlePage.isPageOpened(), "Job Title page is not opened");
         return jobTitlePage;
     }
 
     private EmployeeListPage loadDefaultPimPage() {
         DashboardPage dashboardPage = new DashboardPage(getDriver());
-        EmployeeListPage employeeListPage = dashboardPage.getNavBarMenu().clickPimLabel();
+        EmployeeListPage employeeListPage = dashboardPage.getLeftBarMenu().clickPimLabel();
         Assert.assertTrue(employeeListPage.isPageOpened(), "Employee list page is not opened");
         return employeeListPage;
     }
