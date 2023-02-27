@@ -4,6 +4,16 @@ import java.util.Random;
 
 public class RandomUtil {
 
+    public String getRandomNumber(int numDigits) {
+        if (numDigits < 1) {
+            throw new IllegalArgumentException("Number of digits must be at least 1.");
+        }
+        int min = (int) Math.pow(10, numDigits - 1);
+        int max = (int) Math.pow(10, numDigits) - 1;
+        int result = (int) (Math.random() * (max - min + 1) + min);
+        return String.valueOf(result);
+    }
+
     public String generateRandomString(int length) {
         final String characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
         Random random = new Random();

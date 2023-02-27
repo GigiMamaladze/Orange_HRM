@@ -16,10 +16,6 @@ public class LeftBarMenu extends AbstractUIObject {
     @FindBy(xpath = "//*[@class = 'oxd-main-menu-item']//*[text() = 'PIM']")
     private ExtendedWebElement pimLabel;
 
-    public LeftBarMenu(WebDriver driver) {
-        super(driver);
-    }
-
     public LeftBarMenu(WebDriver driver, SearchContext searchContext) {
         super(driver, searchContext);
     }

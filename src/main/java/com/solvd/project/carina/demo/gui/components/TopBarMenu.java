@@ -27,10 +27,6 @@ public class TopBarMenu extends AbstractUIObject {
     @FindBy(xpath = "//*[@class = 'oxd-dropdown-menu']//*[text() = '%s']")
     private ExtendedWebElement subSection;
 
-    public TopBarMenu(WebDriver driver) {
-        super(driver);
-    }
-
     public TopBarMenu(WebDriver driver, SearchContext searchContext) {
         super(driver, searchContext);
     }
@@ -53,12 +49,12 @@ public class TopBarMenu extends AbstractUIObject {
     }
 
     public JobTitlePage clickJobTitleLabel() {
-        subSection.format(AdminSection.AdminSubSection.JOB_JOB_TITLE.getSubsection()).click();
+        subSection.format(AdminSection.JOB_TITLE.getSection()).click();
         return new JobTitlePage(getDriver());
     }
 
     public GeneralInformationPage clickGeneralInformationLabel() {
-        subSection.format(AdminSection.AdminSubSection.ORGANIZATION_GENERAL_INFORMATION.getSubsection()).click();
+        subSection.format(AdminSection.ORGANIZATION_GENERAL_INFORMATION.getSection()).click();
         return new GeneralInformationPage(getDriver());
     }
 

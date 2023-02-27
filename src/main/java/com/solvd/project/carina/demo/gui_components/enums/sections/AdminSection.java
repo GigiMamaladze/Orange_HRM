@@ -3,7 +3,11 @@ package com.solvd.project.carina.demo.gui_components.enums.sections;
 public enum AdminSection {
 
     JOB("Job "),
-    ORGANIZATION("Organization ");
+    JOB_TITLE("Job Titles"),
+
+    ORGANIZATION("Organization "),
+    ORGANIZATION_GENERAL_INFORMATION("General Information");
+
 
     private final String section;
 
@@ -13,21 +17,5 @@ public enum AdminSection {
 
     public String getSection() {
         return section;
-    }
-
-    public enum AdminSubSection {
-
-        JOB_JOB_TITLE("Job Titles"),
-        ORGANIZATION_GENERAL_INFORMATION("General Information");
-
-        private final String subsection;
-
-        AdminSubSection(String subsection) {
-            this.subsection = subsection;
-        }
-
-        public String getSubsection() {
-            return subsection;
-        }
     }
 }

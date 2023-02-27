@@ -1,6 +1,5 @@
 package com.solvd.project.carina.demo;
 
-import com.solvd.project.carina.demo.gui.components.DeleteHobConfirmationAlert;
 import com.solvd.project.carina.demo.gui.pages.DashboardPage;
 import com.solvd.project.carina.demo.gui.pages.admin.job.AddJobTitlePage;
 import com.solvd.project.carina.demo.gui.pages.admin.job.JobTitlePage;
@@ -82,8 +81,7 @@ public class AdminServiceTest extends AbstractOrangeHRMTest {
         Assert.assertTrue(jobTitlePage.isJobTitlePresent(jobTitle), "Job title is not exist in list");
         jobTitlePage.scrollToJobTitle(jobTitle);
         jobTitlePage.deleteJobTitle(jobTitle);
-        DeleteHobConfirmationAlert deleteHobConfirmationAlert = new DeleteHobConfirmationAlert(getDriver());
-        deleteHobConfirmationAlert.clickYesDeleteBtn();
+        jobTitlePage.getDeleteJobConfirmationAlert().clickYesDeleteBtn();
         Assert.assertTrue(jobTitlePage.isSuccessDeleteMessagePresent(), "Job is not deleted");
         Assert.assertFalse(jobTitlePage.isJobTitlePresent(jobTitle), "Job title exist in list");
     }

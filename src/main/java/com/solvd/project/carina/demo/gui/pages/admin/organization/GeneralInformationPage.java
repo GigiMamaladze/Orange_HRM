@@ -5,6 +5,7 @@ import com.qaprosoft.carina.core.foundation.webdriver.decorator.PageOpeningStrat
 import com.solvd.project.carina.demo.gui_components.abstractclass.AbstractOrangeHRMPage;
 import com.solvd.project.carina.demo.gui_components.exceptions.UnknownOsException;
 import com.solvd.project.carina.demo.gui_components.utils.SystemUtil;
+import com.solvd.project.carina.demo.gui_components.utils.enums.Platform;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.Keys;
@@ -18,7 +19,7 @@ public class GeneralInformationPage extends AbstractOrangeHRMPage {
     @FindBy(xpath = "//*[@class ='oxd-text oxd-text--h6 orangehrm-main-title'][text() = 'General Information']")
     private ExtendedWebElement formTitle;
 
-    @FindBy(css = ".oxd-switch-input ")
+    @FindBy(css = ".oxd-switch-input")
     private ExtendedWebElement editSwitchBtn;
 
     @FindBy(xpath = "//*[text() = 'Registration Number']/ancestor::div[contains(@class, 'oxd-input-field')]//input")
@@ -39,13 +40,7 @@ public class GeneralInformationPage extends AbstractOrangeHRMPage {
     }
 
     public void clearRegistrationNumber() throws UnknownOsException {
-        String osName = SystemUtil.getSystemOsName();
-        if (osName.equals("Windows") || osName.equals("Linux")) {
-            registrationNumberTextField.getElement().sendKeys(Keys.CONTROL + "a");
-        } else {
-            registrationNumberTextField.getElement().sendKeys(Keys.COMMAND + "a");
-        }
-        registrationNumberTextField.getElement().sendKeys(Keys.DELETE);
+        clearTextField(registrationNumberTextField.getElement());
     }
 
     public void typeRegistrationNumber(String number) {

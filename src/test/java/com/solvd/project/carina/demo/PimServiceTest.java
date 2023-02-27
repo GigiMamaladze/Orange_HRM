@@ -6,6 +6,7 @@ import com.solvd.project.carina.demo.gui.pages.pim.EmployeeListPage;
 import com.solvd.project.carina.demo.gui.pages.pim.PersonalDetailsPage;
 import com.solvd.project.carina.demo.gui_components.enums.MenuOption;
 import com.solvd.project.carina.demo.gui_components.exceptions.NoPageExistInMenuException;
+import com.solvd.project.carina.demo.gui_components.exceptions.UnknownOsException;
 import com.zebrunner.carina.core.registrar.ownership.MethodOwner;
 import com.zebrunner.carina.utils.R;
 import org.testng.Assert;
@@ -15,7 +16,7 @@ public class PimServiceTest extends AbstractOrangeHRMTest {
 
     @Test
     @MethodOwner(owner = "Gigi")
-    public void addEmployeeTest() {
+    public void addEmployeeTest() throws UnknownOsException {
         DashboardPage dashboardPage = authUtil.logInDefaultUser();
         EmployeeListPage employeeListPage = dashboardPage.getLeftBarMenu().clickPimLabel();
         Assert.assertTrue(employeeListPage.isPageOpened(), "Employee list page is not opened");
@@ -23,9 +24,11 @@ public class PimServiceTest extends AbstractOrangeHRMTest {
         Assert.assertTrue(addEmployeePage.isPageOpened(), "Add employee page is not opened");
         String firstName = "Gigi";
         String lastName = "Mamaladze";
+        String id = randomUtil.getRandomNumber(4);
         addEmployeePage.typeFirstName(firstName);
         addEmployeePage.typeLastName(lastName);
-        String id = addEmployeePage.getEmployeeId();
+        addEmployeePage.clearEmployeeIdTextField();
+        addEmployeePage.typeEmployeeId(id);
         PersonalDetailsPage personalDetailsPage = addEmployeePage.clickSaveBtn();
         Assert.assertTrue(addEmployeePage.isSuccessSaveMessagePresent(), "Employee is not saved");
         Assert.assertTrue(personalDetailsPage.isPageOpened(), "Personal details page is not opened");

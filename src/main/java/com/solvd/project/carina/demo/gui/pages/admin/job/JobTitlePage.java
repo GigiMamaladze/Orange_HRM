@@ -2,7 +2,7 @@ package com.solvd.project.carina.demo.gui.pages.admin.job;
 
 import com.qaprosoft.carina.core.foundation.webdriver.decorator.ExtendedWebElement;
 import com.qaprosoft.carina.core.foundation.webdriver.decorator.PageOpeningStrategy;
-import com.solvd.project.carina.demo.gui.components.DeleteHobConfirmationAlert;
+import com.solvd.project.carina.demo.gui.components.DeleteJobConfirmationAlert;
 import com.solvd.project.carina.demo.gui_components.abstractclass.AbstractOrangeHRMPage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
@@ -10,7 +10,7 @@ import org.openqa.selenium.support.FindBy;
 public class JobTitlePage extends AbstractOrangeHRMPage {
 
     @FindBy(css = ".oxd-dialog-sheet--shadow")
-    private DeleteHobConfirmationAlert deleteHobConfirmationAlert;
+    private DeleteJobConfirmationAlert deleteJobConfirmationAlert;
 
     @FindBy(xpath = "//*[@class = 'oxd-text oxd-text--h6 orangehrm-main-title'][text() = 'Job Titles']")
     private ExtendedWebElement formTitle;
@@ -45,5 +45,9 @@ public class JobTitlePage extends AbstractOrangeHRMPage {
 
     public void deleteJobTitle(String jobTitle) {
         jobTitleTrashBtn.format(jobTitle).click();
+    }
+
+    public DeleteJobConfirmationAlert getDeleteJobConfirmationAlert() {
+        return deleteJobConfirmationAlert;
     }
 }
