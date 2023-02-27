@@ -14,6 +14,6 @@ public enum Platform {
                 return platform;
             }
         }
-        throw new UnknownOsException("Unknown os name");
+        throw new UnknownOsException("Unknown OS name");
     }
 }

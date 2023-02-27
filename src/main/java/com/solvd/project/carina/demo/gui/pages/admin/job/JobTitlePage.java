@@ -12,7 +12,7 @@ public class JobTitlePage extends AbstractOrangeHRMPage {
     @FindBy(css = ".oxd-dialog-sheet--shadow")
     private DeleteJobConfirmationAlert deleteJobConfirmationAlert;
 
-    @FindBy(xpath = "//*[@class = 'oxd-text oxd-text--h6 orangehrm-main-title'][text() = 'Job Titles']")
+    @FindBy(xpath = "//h6[text() = 'Job Titles']")
     private ExtendedWebElement formTitle;
 
     @FindBy(xpath = "//*[text() = ' Add ']")

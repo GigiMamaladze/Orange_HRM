@@ -10,7 +10,7 @@ import org.openqa.selenium.support.FindBy;
 
 public class AddUserPage extends AbstractOrangeHRMPage {
 
-    @FindBy(xpath = "//*[text() = 'Add User']")
+    @FindBy(xpath = "//h6[text() = 'Add User']")
     private ExtendedWebElement formTitle;
 
     @FindBy(xpath = "//*[text() = 'Employee Name']/ancestor::div[contains(@class, 'oxd-input-field')]//input")

@@ -7,6 +7,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
 
 public class DeleteJobConfirmationAlert extends AbstractUIObject {
+
     @FindBy(xpath = "//button[text() = ' Yes, Delete ']")
     private ExtendedWebElement yesDeleteBtn;
 

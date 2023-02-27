@@ -8,7 +8,7 @@ import org.openqa.selenium.support.FindBy;
 
 public class AddJobTitlePage extends AbstractOrangeHRMPage {
 
-    @FindBy(xpath = "//*[text() = 'Add Job Title']")
+    @FindBy(xpath = "//h6[text() = 'Add Job Title']")
     private ExtendedWebElement formTitle;
 
     @FindBy(xpath = "//*[text() = 'Job Title']/ancestor::div[contains(@class, 'oxd-input-field')]//input")

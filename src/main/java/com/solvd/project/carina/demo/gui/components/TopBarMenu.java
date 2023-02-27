@@ -3,12 +3,7 @@ package com.solvd.project.carina.demo.gui.components;
 import com.qaprosoft.carina.core.foundation.webdriver.decorator.ExtendedWebElement;
 import com.qaprosoft.carina.core.gui.AbstractUIObject;
 import com.solvd.project.carina.demo.gui.pages.UpdatePasswordPage;
-import com.solvd.project.carina.demo.gui.pages.admin.job.JobTitlePage;
-import com.solvd.project.carina.demo.gui.pages.admin.organization.GeneralInformationPage;
-import com.solvd.project.carina.demo.gui.pages.pim.AddEmployeePage;
-import com.solvd.project.carina.demo.gui.pages.pim.EmployeeListPage;
-import com.solvd.project.carina.demo.gui_components.enums.sections.AdminSection;
-import com.solvd.project.carina.demo.gui_components.enums.sections.PimSection;
+import com.solvd.project.carina.demo.gui_components.enums.MenuOption;
 import org.openqa.selenium.SearchContext;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
@@ -31,6 +26,10 @@ public class TopBarMenu extends AbstractUIObject {
         super(driver, searchContext);
     }
 
+    public TopBarMenu(WebDriver driver) {
+        super(driver);
+    }
+
     public void clickUserNameArrowIcon() {
         userNameArrowIcon.click();
     }
@@ -40,31 +39,11 @@ public class TopBarMenu extends AbstractUIObject {
         return new UpdatePasswordPage(getDriver());
     }
 
-    public void clickOrganizationSection() {
-        sections.format(AdminSection.ORGANIZATION.getSection()).click();
+    public void clickSection(MenuOption menuOption) {
+        sections.format(menuOption.getMenuOption()).click();
     }
 
-    public void clickJobSection() {
-        sections.format(AdminSection.JOB.getSection()).click();
-    }
-
-    public JobTitlePage clickJobTitleLabel() {
-        subSection.format(AdminSection.JOB_TITLE.getSection()).click();
-        return new JobTitlePage(getDriver());
-    }
-
-    public GeneralInformationPage clickGeneralInformationLabel() {
-        subSection.format(AdminSection.ORGANIZATION_GENERAL_INFORMATION.getSection()).click();
-        return new GeneralInformationPage(getDriver());
-    }
-
-    public AddEmployeePage clickAddEmployeeSection() {
-        sections.format(PimSection.ADD_EMPLOYEE.getSection()).click();
-        return new AddEmployeePage(getDriver());
-    }
-
-    public EmployeeListPage clickEmployeeListSection() {
-        sections.format(PimSection.EMPLOYEE_LIST.getSection()).click();
-        return new EmployeeListPage(getDriver());
+    public void clickSubSection(MenuOption menuOption) {
+        subSection.format(menuOption.getMenuOption()).click();
     }
 }

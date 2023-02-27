@@ -1,6 +1,5 @@
 package com.solvd.project.carina.demo;
 
-import com.solvd.project.carina.demo.gui.pages.DashboardPage;
 import com.solvd.project.carina.demo.gui.pages.admin.job.AddJobTitlePage;
 import com.solvd.project.carina.demo.gui.pages.admin.job.JobTitlePage;
 import com.solvd.project.carina.demo.gui.pages.admin.organization.GeneralInformationPage;
@@ -20,14 +19,13 @@ public class AdminServiceTest extends AbstractOrangeHRMTest {
 
     @Test
     @MethodOwner(owner = "Gigi")
-    public void addUserTest() {
-        DashboardPage dashboardPage = authUtil.logInDefaultUser();
-        UserManagementPage userManagementPage = dashboardPage.getLeftBarMenu()
-                .clickAdminLabel();
+    public void addUserTest() throws NoPageExistInMenuException {
+        authUtil.logInDefaultUser();
+        UserManagementPage userManagementPage = (UserManagementPage) navigationUtil.openPage(MenuOption.ADMIN);
         Assert.assertTrue(userManagementPage.isPageOpened(), "User management page is not opened");
         AddUserPage addUserPage = userManagementPage.clickAddUserBtn();
         Assert.assertTrue(addUserPage.isPageOpened(), "Add user page is not opened");
-        addUserPage.typeUserName(randomUtil.generateRandomString(10));
+        addUserPage.typeUserName(randomUtil.getRandomString(10));
         addUserPage.typeEmployeeName(R.TESTDATA.get("employeeName"));
         addUserPage.clickSearchedEmployee(R.TESTDATA.get("employeeName"));
         addUserPage.clickUserRoleArrowDownBtn();
@@ -44,7 +42,7 @@ public class AdminServiceTest extends AbstractOrangeHRMTest {
     @MethodOwner(owner = "Gigi")
     public void systemUserSearchTest() throws NoPageExistInMenuException {
         authUtil.logInDefaultUser();
-        UserManagementPage userManagementPage = (UserManagementPage) navigationUtil.openPage(MenuOption.ADMIN_DEFAULT);
+        UserManagementPage userManagementPage = (UserManagementPage) navigationUtil.openPage(MenuOption.ADMIN);
         String userName = "Admin";
         userManagementPage.typeUserName(userName);
         userManagementPage.clickSearchBtn();
@@ -55,14 +53,11 @@ public class AdminServiceTest extends AbstractOrangeHRMTest {
     @MethodOwner(owner = "Gigi")
     public void addJobTitleTest() throws NoPageExistInMenuException {
         authUtil.logInDefaultUser();
-        UserManagementPage userManagementPage = (UserManagementPage) navigationUtil.openPage(MenuOption.ADMIN_DEFAULT);
-        userManagementPage.getTopBarMenu().clickJobSection();
-        JobTitlePage jobTitlePage = userManagementPage.getTopBarMenu()
-                .clickJobTitleLabel();
+        JobTitlePage jobTitlePage = (JobTitlePage) navigationUtil.openPage(MenuOption.ADMIN_JOB_TITLE);
         Assert.assertTrue(jobTitlePage.isPageOpened(), "Job Title page is not opened");
         AddJobTitlePage addJobTitlePage = jobTitlePage.clickAddBtn();
         Assert.assertTrue(addJobTitlePage.isPageOpened(), "Add job title page is not opened");
-        String jobTitle = randomUtil.generateRandomString(8);
+        String jobTitle = randomUtil.getRandomString(8);
         addJobTitlePage.typeJobTitle(jobTitle);
         addJobTitlePage.clickSaveBtn();
         Assert.assertTrue(addJobTitlePage.isSuccessSaveMessagePresent(), "Job is not created");
@@ -73,7 +68,7 @@ public class AdminServiceTest extends AbstractOrangeHRMTest {
     @MethodOwner(owner = "Gigi")
     public void deleteJobTitle() throws NoPageExistInMenuException {
         authUtil.logInDefaultUser();
-        String jobTitle = randomUtil.generateRandomString(9);
+        String jobTitle = randomUtil.getRandomString(9);
         JobTitlePage jobTitlePage = (JobTitlePage) navigationUtil.openPage(MenuOption.ADMIN_JOB_TITLE);
         AddJobTitlePage addJobTitlePage = jobTitlePage.clickAddBtn();
         Assert.assertTrue(addJobTitlePage.isPageOpened(), "Add job title page is not opened");
@@ -90,10 +85,7 @@ public class AdminServiceTest extends AbstractOrangeHRMTest {
     @MethodOwner(owner = "Gigi")
     public void generalInformationEditTest() throws NoPageExistInMenuException, UnknownOsException {
         authUtil.logInDefaultUser();
-        UserManagementPage userManagementPage = (UserManagementPage) navigationUtil.openPage(MenuOption.ADMIN_DEFAULT);
-        userManagementPage.getTopBarMenu().clickOrganizationSection();
-        GeneralInformationPage generalInformationPage = userManagementPage.getTopBarMenu()
-                .clickGeneralInformationLabel();
+        GeneralInformationPage generalInformationPage = (GeneralInformationPage) navigationUtil.openPage(MenuOption.ADMIN_ORGANIZATION_GENERAL_INFORMATION);
         Assert.assertTrue(generalInformationPage.isPageOpened(), "General information page is not opened");
         generalInformationPage.clickEditSwitchBtn();
         String registrationNumber = "1234";

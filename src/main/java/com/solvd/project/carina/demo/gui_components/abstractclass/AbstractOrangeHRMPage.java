@@ -51,7 +51,7 @@ public abstract class AbstractOrangeHRMPage extends AbstractPage {
     }
 
     public void clearTextField(WebElement textField) throws UnknownOsException {
-        Platform platform = SystemUtil.getSystemOsName();
+        Platform platform = SystemUtil.getSystemOSName();
         if (platform == Platform.WINDOWS || platform == Platform.LINUX) {
             textField.sendKeys(Keys.CONTROL + "a");
         } else if (platform == Platform.MAC) {

@@ -1,6 +1,5 @@
 package com.solvd.project.carina.demo;
 
-import com.solvd.project.carina.demo.gui.pages.DashboardPage;
 import com.solvd.project.carina.demo.gui.pages.pim.AddEmployeePage;
 import com.solvd.project.carina.demo.gui.pages.pim.EmployeeListPage;
 import com.solvd.project.carina.demo.gui.pages.pim.PersonalDetailsPage;
@@ -16,11 +15,9 @@ public class PimServiceTest extends AbstractOrangeHRMTest {
 
     @Test
     @MethodOwner(owner = "Gigi")
-    public void addEmployeeTest() throws UnknownOsException {
-        DashboardPage dashboardPage = authUtil.logInDefaultUser();
-        EmployeeListPage employeeListPage = dashboardPage.getLeftBarMenu().clickPimLabel();
-        Assert.assertTrue(employeeListPage.isPageOpened(), "Employee list page is not opened");
-        AddEmployeePage addEmployeePage = employeeListPage.getTopBarMenu().clickAddEmployeeSection();
+    public void addEmployeeTest() throws UnknownOsException, NoPageExistInMenuException {
+        authUtil.logInDefaultUser();
+        AddEmployeePage addEmployeePage = (AddEmployeePage) navigationUtil.openPage(MenuOption.PIM_ADD_EMPLOYEE);
         Assert.assertTrue(addEmployeePage.isPageOpened(), "Add employee page is not opened");
         String firstName = "Gigi";
         String lastName = "Mamaladze";
@@ -32,7 +29,7 @@ public class PimServiceTest extends AbstractOrangeHRMTest {
         PersonalDetailsPage personalDetailsPage = addEmployeePage.clickSaveBtn();
         Assert.assertTrue(addEmployeePage.isSuccessSaveMessagePresent(), "Employee is not saved");
         Assert.assertTrue(personalDetailsPage.isPageOpened(), "Personal details page is not opened");
-        employeeListPage = personalDetailsPage.getTopBarMenu().clickEmployeeListSection();
+        EmployeeListPage employeeListPage = (EmployeeListPage) navigationUtil.openPage(MenuOption.PIM);
         Assert.assertTrue(employeeListPage.isPageOpened(), "Employee List page is not opened");
         Assert.assertTrue(employeeListPage.isEmployeeIdPresent(id), "Employee is not present in list");
     }
@@ -41,7 +38,7 @@ public class PimServiceTest extends AbstractOrangeHRMTest {
     @MethodOwner(owner = "Gigi")
     public void searchEmployeeTest() throws NoPageExistInMenuException {
         authUtil.logInDefaultUser();
-        EmployeeListPage employeeListPage = (EmployeeListPage) navigationUtil.openPage(MenuOption.PIM_DEFAULT);
+        EmployeeListPage employeeListPage = (EmployeeListPage) navigationUtil.openPage(MenuOption.PIM);
         employeeListPage.typeEmployeeName(R.TESTDATA.get("employeeName"));
         employeeListPage.clickSearchBtn();
         Assert.assertTrue(employeeListPage.isSearchedEmployeePresent(R.TESTDATA.get("employeeName")), "Employee is not present in list");

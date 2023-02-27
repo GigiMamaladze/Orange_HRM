@@ -14,7 +14,7 @@ public class RandomUtil {
         return String.valueOf(result);
     }
 
-    public String generateRandomString(int length) {
+    public String getRandomString(int length) {
         final String characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
         Random random = new Random();
         StringBuilder sb = new StringBuilder();

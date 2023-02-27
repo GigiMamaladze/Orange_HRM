@@ -9,10 +9,10 @@ public class SystemUtil {
 
     private static final Logger LOGGER = LogManager.getLogger(SystemUtil.class);
 
-    public static Platform getSystemOsName() throws UnknownOsException {
+    public static Platform getSystemOSName() throws UnknownOsException {
         String osName = System.getProperty("os.name");
         String[] split = osName.split("\\s+");
-        LOGGER.info(split[0]);
+        LOGGER.info("Current OS: " + split[0]);
         Platform platform = Platform.getByName(split[0]);
         return platform;
     }

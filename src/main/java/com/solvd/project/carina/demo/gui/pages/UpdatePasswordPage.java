@@ -8,7 +8,7 @@ import org.openqa.selenium.support.FindBy;
 
 public class UpdatePasswordPage extends AbstractOrangeHRMPage {
 
-    @FindBy(xpath = "//*[text() = 'Update Password']")
+    @FindBy(xpath = "//h6[text() = 'Update Password']")
     private ExtendedWebElement updatePasswordFormTitle;
 
     @FindBy(xpath = "//*[text() = 'Current Password']/../..//input[@type = 'password']")

@@ -3,7 +3,6 @@ package com.solvd.project.carina.demo.gui.pages.pim;
 import com.qaprosoft.carina.core.foundation.webdriver.decorator.ExtendedWebElement;
 import com.qaprosoft.carina.core.foundation.webdriver.decorator.PageOpeningStrategy;
 import com.solvd.project.carina.demo.gui_components.abstractclass.AbstractOrangeHRMPage;
-import com.solvd.project.carina.demo.gui_components.utils.StringUtil;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
@@ -13,7 +12,7 @@ public class EmployeeListPage extends AbstractOrangeHRMPage {
 
     private static final Logger LOGGER = LogManager.getLogger(EmployeeListPage.class);
 
-    @FindBy(xpath = "//*[text() = 'Employee Information']")
+    @FindBy(xpath = "//h5[text() = 'Employee Information']")
     private ExtendedWebElement formTitle;
 
     @FindBy(xpath = "//*[text() = 'Employee Name']/ancestor::div[contains(@class, 'oxd-input-field')]//input")
@@ -47,7 +46,7 @@ public class EmployeeListPage extends AbstractOrangeHRMPage {
     }
 
     public boolean isSearchedEmployeePresent(String employeeName) {
-        String name = StringUtil.splitText(employeeName)[0];
+        String name = employeeName.split("\\s+")[0];
         LOGGER.info(name);
         return searchedEmployeeName.format(name).isElementPresent();
     }

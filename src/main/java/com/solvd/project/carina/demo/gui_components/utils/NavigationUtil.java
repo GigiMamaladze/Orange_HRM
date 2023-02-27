@@ -1,52 +1,44 @@
 package com.solvd.project.carina.demo.gui_components.utils;
 
+
 import com.qaprosoft.carina.core.foundation.AbstractTest;
-import com.solvd.project.carina.demo.gui.pages.DashboardPage;
+import com.solvd.project.carina.demo.gui.components.LeftBarMenu;
+import com.solvd.project.carina.demo.gui.components.TopBarMenu;
 import com.solvd.project.carina.demo.gui.pages.admin.job.JobTitlePage;
+import com.solvd.project.carina.demo.gui.pages.admin.organization.GeneralInformationPage;
 import com.solvd.project.carina.demo.gui.pages.admin.usermenagement.UserManagementPage;
+import com.solvd.project.carina.demo.gui.pages.pim.AddEmployeePage;
 import com.solvd.project.carina.demo.gui.pages.pim.EmployeeListPage;
 import com.solvd.project.carina.demo.gui_components.abstractclass.AbstractOrangeHRMPage;
 import com.solvd.project.carina.demo.gui_components.enums.MenuOption;
 import com.solvd.project.carina.demo.gui_components.exceptions.NoPageExistInMenuException;
-import org.testng.Assert;
 
 public class NavigationUtil extends AbstractTest {
 
-
-    private UserManagementPage loadDefaultAdminPage() {
-        DashboardPage dashboardPage = new DashboardPage(getDriver());
-        Assert.assertTrue(dashboardPage.isPageOpened(), "Dashboard page is not opened. user is not logged in");
-        UserManagementPage userManagementPage = dashboardPage.getLeftBarMenu().clickAdminLabel();
-        Assert.assertTrue(userManagementPage.isPageOpened(), "User management page is not opened");
-        return userManagementPage;
-    }
-
-    private JobTitlePage loadJobTitlePage() {
-        UserManagementPage userManagementPage = loadDefaultAdminPage();
-        userManagementPage.getTopBarMenu().clickJobSection();
-        JobTitlePage jobTitlePage = userManagementPage.getTopBarMenu().clickJobTitleLabel();
-        Assert.assertTrue(jobTitlePage.isPageOpened(), "Job Title page is not opened");
-        return jobTitlePage;
-    }
-
-    private EmployeeListPage loadDefaultPimPage() {
-        DashboardPage dashboardPage = new DashboardPage(getDriver());
-        EmployeeListPage employeeListPage = dashboardPage.getLeftBarMenu().clickPimLabel();
-        Assert.assertTrue(employeeListPage.isPageOpened(), "Employee list page is not opened");
-        return employeeListPage;
-    }
-
-
     public AbstractOrangeHRMPage openPage(MenuOption menuOption) throws NoPageExistInMenuException {
-        DashboardPage dashboardPage = new DashboardPage(getDriver());
-        Assert.assertTrue(dashboardPage.isPageOpened(), "Dashboard page is not opened. user is not logged in");
+        LeftBarMenu leftBarMenu = new LeftBarMenu(getDriver());
+        TopBarMenu topBarMenu = new TopBarMenu(getDriver());
         switch (menuOption) {
-            case ADMIN_DEFAULT:
-                return loadDefaultAdminPage();
+            case ADMIN:
+                leftBarMenu.clickMenuOption(MenuOption.ADMIN);
+                return new UserManagementPage(getDriver());
             case ADMIN_JOB_TITLE:
-                return loadJobTitlePage();
-            case PIM_DEFAULT:
-                return loadDefaultPimPage();
+                leftBarMenu.clickMenuOption(MenuOption.ADMIN);
+                topBarMenu.clickSection(MenuOption.ADMIN_JOB);
+                topBarMenu.clickSubSection(MenuOption.ADMIN_JOB_TITLE);
+                return new JobTitlePage(getDriver());
+            case ADMIN_ORGANIZATION_GENERAL_INFORMATION:
+                leftBarMenu.clickMenuOption(MenuOption.ADMIN);
+                topBarMenu.clickSection(MenuOption.ADMIN_ORGANIZATION);
+                topBarMenu.clickSubSection(MenuOption.ADMIN_ORGANIZATION_GENERAL_INFORMATION);
+                return new GeneralInformationPage(getDriver());
+            case PIM:
+                leftBarMenu.clickMenuOption(MenuOption.PIM);
+                return new EmployeeListPage(getDriver());
+            case PIM_ADD_EMPLOYEE:
+                leftBarMenu.clickMenuOption(MenuOption.PIM);
+                topBarMenu.clickSection(MenuOption.PIM_ADD_EMPLOYEE);
+                return new AddEmployeePage(getDriver());
             default:
                 throw new NoPageExistInMenuException("Page is not exist");
         }
