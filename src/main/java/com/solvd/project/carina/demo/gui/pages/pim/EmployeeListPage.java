@@ -3,20 +3,16 @@ package com.solvd.project.carina.demo.gui.pages.pim;
 import com.qaprosoft.carina.core.foundation.webdriver.decorator.ExtendedWebElement;
 import com.qaprosoft.carina.core.foundation.webdriver.decorator.PageOpeningStrategy;
 import com.solvd.project.carina.demo.gui_components.abstractclass.AbstractOrangeHRMPage;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
 
 public class EmployeeListPage extends AbstractOrangeHRMPage {
 
-    private static final Logger LOGGER = LogManager.getLogger(EmployeeListPage.class);
-
     @FindBy(xpath = "//h5[text() = 'Employee Information']")
     private ExtendedWebElement formTitle;
 
     @FindBy(xpath = "//*[text() = 'Employee Name']/ancestor::div[contains(@class, 'oxd-input-field')]//input")
-    private ExtendedWebElement employeeNameTextField;
+    private ExtendedWebElement employeeFullNameTextField;
 
     @FindBy(xpath = "//*[text() = '%s']")
     private ExtendedWebElement employeeIdInList;
@@ -37,8 +33,8 @@ public class EmployeeListPage extends AbstractOrangeHRMPage {
         return employeeIdInList.format(id).isElementPresent();
     }
 
-    public void typeEmployeeName(String employee) {
-        employeeNameTextField.type(employee);
+    public void typeEmployeeFullName(String employee) {
+        employeeFullNameTextField.type(employee);
     }
 
     public void clickSearchBtn() {
@@ -46,8 +42,6 @@ public class EmployeeListPage extends AbstractOrangeHRMPage {
     }
 
     public boolean isSearchedEmployeePresent(String employeeName) {
-        String name = employeeName.split("\\s+")[0];
-        LOGGER.info(name);
-        return searchedEmployeeName.format(name).isElementPresent();
+        return searchedEmployeeName.format(employeeName).isElementPresent();
     }
 }

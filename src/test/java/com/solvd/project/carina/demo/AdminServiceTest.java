@@ -19,15 +19,18 @@ public class AdminServiceTest extends AbstractOrangeHRMTest {
 
     @Test
     @MethodOwner(owner = "Gigi")
-    public void addUserTest() throws NoPageExistInMenuException {
+    public void addUserTest() throws NoPageExistInMenuException, UnknownOsException {
         authUtil.logInDefaultUser();
+        String employeeName = randomUtil.getRandomString(5);
+        String employeeSurname = randomUtil.getRandomString(7);
+        manageEmployeeUtil.addEmployee(employeeName, employeeSurname);
         UserManagementPage userManagementPage = (UserManagementPage) navigationUtil.openPage(MenuOption.ADMIN);
         Assert.assertTrue(userManagementPage.isPageOpened(), "User management page is not opened");
         AddUserPage addUserPage = userManagementPage.clickAddUserBtn();
         Assert.assertTrue(addUserPage.isPageOpened(), "Add user page is not opened");
         addUserPage.typeUserName(randomUtil.getRandomString(10));
-        addUserPage.typeEmployeeName(R.TESTDATA.get("employeeName"));
-        addUserPage.clickSearchedEmployee(R.TESTDATA.get("employeeName"));
+        addUserPage.typeEmployeeFullName(employeeName + "  " + employeeSurname);
+        addUserPage.clickSearchedEmployee(employeeName + "  " + employeeSurname);
         addUserPage.clickUserRoleArrowDownBtn();
         addUserPage.clickUserRole(UserRole.ADMIN);
         addUserPage.clickUserStatusArrowDownBtn();

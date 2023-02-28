@@ -8,12 +8,10 @@ public enum MenuOption {
     ADMIN_ORGANIZATION("Organization "),
     ADMIN_ORGANIZATION_GENERAL_INFORMATION("General Information"),
 
-
     PIM("PIM"),
     PIM_ADD_EMPLOYEE("Add Employee");
 
     private final String menuOption;
-
 
     MenuOption(String menuOption) {
         this.menuOption = menuOption;

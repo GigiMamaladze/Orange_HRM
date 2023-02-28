@@ -4,14 +4,10 @@ import com.qaprosoft.carina.core.foundation.webdriver.decorator.ExtendedWebEleme
 import com.qaprosoft.carina.core.foundation.webdriver.decorator.PageOpeningStrategy;
 import com.solvd.project.carina.demo.gui_components.abstractclass.AbstractOrangeHRMPage;
 import com.solvd.project.carina.demo.gui_components.exceptions.UnknownOsException;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
 
 public class GeneralInformationPage extends AbstractOrangeHRMPage {
-
-    private static final Logger LOGGER = LogManager.getLogger(GeneralInformationPage.class);
 
     @FindBy(xpath = "//h6[text() = 'General Information']")
     private ExtendedWebElement formTitle;

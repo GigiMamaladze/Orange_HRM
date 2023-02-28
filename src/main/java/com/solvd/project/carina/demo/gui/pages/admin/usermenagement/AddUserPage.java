@@ -14,7 +14,7 @@ public class AddUserPage extends AbstractOrangeHRMPage {
     private ExtendedWebElement formTitle;
 
     @FindBy(xpath = "//*[text() = 'Employee Name']/ancestor::div[contains(@class, 'oxd-input-field')]//input")
-    private ExtendedWebElement employeeNameTextField;
+    private ExtendedWebElement employeeFullNameTextField;
 
     @FindBy(xpath = "//*[text() = 'Employee Name']/ancestor::div[contains(@class, 'oxd-input-field')]//div[@role = 'listbox']//*[text() = '%s']")
     private ExtendedWebElement searchedEmployee;
@@ -73,8 +73,8 @@ public class AddUserPage extends AbstractOrangeHRMPage {
         searchedEmployee.format(employee).click();
     }
 
-    public void typeEmployeeName(String name) {
-        employeeNameTextField.type(name);
+    public void typeEmployeeFullName(String name) {
+        employeeFullNameTextField.type(name);
     }
 
     public void typePassword(String password) {

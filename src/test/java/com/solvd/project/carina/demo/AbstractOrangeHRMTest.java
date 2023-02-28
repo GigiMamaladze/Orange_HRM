@@ -1,10 +1,7 @@
 package com.solvd.project.carina.demo;
 
 import com.qaprosoft.carina.core.foundation.AbstractTest;
-import com.solvd.project.carina.demo.gui_components.utils.AdminUtil;
-import com.solvd.project.carina.demo.gui_components.utils.AuthUtil;
-import com.solvd.project.carina.demo.gui_components.utils.NavigationUtil;
-import com.solvd.project.carina.demo.gui_components.utils.RandomUtil;
+import com.solvd.project.carina.demo.gui_components.utils.*;
 
 public abstract class AbstractOrangeHRMTest extends AbstractTest {
 
@@ -15,4 +12,6 @@ public abstract class AbstractOrangeHRMTest extends AbstractTest {
     public AdminUtil adminUtil = new AdminUtil();
 
     public NavigationUtil navigationUtil = new NavigationUtil();
+
+    public ManageEmployeeUtil manageEmployeeUtil = new ManageEmployeeUtil();
 }
