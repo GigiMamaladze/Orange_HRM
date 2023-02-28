@@ -1,12 +1,12 @@
-package com.solvd.project.carina.demo.gui.pages;
+package com.solvd.project.carina.demo.gui.pages.admin.usermenagement;
 
 import com.qaprosoft.carina.core.foundation.webdriver.decorator.ExtendedWebElement;
 import com.qaprosoft.carina.core.foundation.webdriver.decorator.PageOpeningStrategy;
-import com.qaprosoft.carina.core.gui.AbstractPage;
+import com.solvd.project.carina.demo.gui.pages.AbstractOrangeHRMPage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
 
-public class UserManagementPage extends AbstractPage {
+public class UserManagementPage extends AbstractOrangeHRMPage {
 
     @FindBy(xpath = "//*[@class = 'oxd-topbar-header-breadcrumb']//*[text() = 'User Management']")
     private ExtendedWebElement pageTitle;

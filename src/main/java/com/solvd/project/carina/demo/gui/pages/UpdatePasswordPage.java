@@ -2,13 +2,12 @@ package com.solvd.project.carina.demo.gui.pages;
 
 import com.qaprosoft.carina.core.foundation.webdriver.decorator.ExtendedWebElement;
 import com.qaprosoft.carina.core.foundation.webdriver.decorator.PageOpeningStrategy;
-import com.qaprosoft.carina.core.gui.AbstractPage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
 
-public class UpdatePasswordPage extends AbstractPage {
+public class UpdatePasswordPage extends AbstractOrangeHRMPage {
 
-    @FindBy(xpath = "//*[text() = 'Update Password']")
+    @FindBy(xpath = "//h6[text() = 'Update Password']")
     private ExtendedWebElement updatePasswordFormTitle;
 
     @FindBy(xpath = "//*[text() = 'Current Password']/../..//input[@type = 'password']")
@@ -22,9 +21,6 @@ public class UpdatePasswordPage extends AbstractPage {
 
     @FindBy(xpath = "//*[@type = 'submit']")
     private ExtendedWebElement saveBtn;
-
-    @FindBy(xpath = "//*[text() = 'Successfully Saved']")
-    private ExtendedWebElement successSaveMessage;
 
     public UpdatePasswordPage(WebDriver driver) {
         super(driver);
@@ -46,9 +42,5 @@ public class UpdatePasswordPage extends AbstractPage {
 
     public void clickSaveBtn() {
         saveBtn.click();
-    }
-
-    public boolean isSuccessSaveMessage() {
-        return successSaveMessage.isElementPresent();
     }
 }

@@ -2,11 +2,10 @@ package com.solvd.project.carina.demo.gui.pages;
 
 import com.qaprosoft.carina.core.foundation.webdriver.decorator.ExtendedWebElement;
 import com.qaprosoft.carina.core.foundation.webdriver.decorator.PageOpeningStrategy;
-import com.qaprosoft.carina.core.gui.AbstractPage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
 
-public class PasswordResetCodePage extends AbstractPage {
+public class PasswordResetCodePage extends AbstractOrangeHRMPage {
 
     @FindBy(css = ".orangehrm-forgot-password-title")
     private ExtendedWebElement resetPasswordFormTitle;

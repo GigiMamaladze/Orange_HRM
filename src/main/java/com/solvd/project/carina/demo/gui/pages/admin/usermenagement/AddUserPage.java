@@ -1,20 +1,20 @@
-package com.solvd.project.carina.demo.gui.pages;
+package com.solvd.project.carina.demo.gui.pages.admin.usermenagement;
 
 import com.qaprosoft.carina.core.foundation.webdriver.decorator.ExtendedWebElement;
 import com.qaprosoft.carina.core.foundation.webdriver.decorator.PageOpeningStrategy;
-import com.qaprosoft.carina.core.gui.AbstractPage;
-import com.solvd.project.carina.demo.gui_components.enums.UserRole;
-import com.solvd.project.carina.demo.gui_components.enums.UserStatus;
+import com.solvd.project.carina.demo.gui.pages.AbstractOrangeHRMPage;
+import com.solvd.project.carina.demo.components.enums.UserRole;
+import com.solvd.project.carina.demo.components.enums.UserStatus;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
 
-public class AddUserPage extends AbstractPage {
+public class AddUserPage extends AbstractOrangeHRMPage {
 
-    @FindBy(xpath = "//*[text() = 'Add User']")
+    @FindBy(xpath = "//h6[text() = 'Add User']")
     private ExtendedWebElement formTitle;
 
     @FindBy(xpath = "//*[text() = 'Employee Name']/ancestor::div[contains(@class, 'oxd-input-field')]//input")
-    private ExtendedWebElement employeeNameTextField;
+    private ExtendedWebElement employeeFullNameTextField;
 
     @FindBy(xpath = "//*[text() = 'Employee Name']/ancestor::div[contains(@class, 'oxd-input-field')]//div[@role = 'listbox']//*[text() = '%s']")
     private ExtendedWebElement searchedEmployee;
@@ -42,9 +42,6 @@ public class AddUserPage extends AbstractPage {
 
     @FindBy(xpath = "//*[@type = 'submit']")
     private ExtendedWebElement saveBtn;
-
-    @FindBy(xpath = "//*[text() = 'Successfully Saved']")
-    private ExtendedWebElement successSaveMessage;
 
     public AddUserPage(WebDriver driver) {
         super(driver);
@@ -76,8 +73,8 @@ public class AddUserPage extends AbstractPage {
         searchedEmployee.format(employee).click();
     }
 
-    public void typeEmployeeName(String name) {
-        employeeNameTextField.type(name);
+    public void typeEmployeeFullName(String name) {
+        employeeFullNameTextField.type(name);
     }
 
     public void typePassword(String password) {
@@ -86,10 +83,6 @@ public class AddUserPage extends AbstractPage {
 
     public void typeConfirmPassword(String password) {
         confirmPasswordTextField.type(password);
-    }
-
-    public boolean isSuccessSaveMessage() {
-        return successSaveMessage.isElementPresent();
     }
 
     public void clickSaveBtn() {

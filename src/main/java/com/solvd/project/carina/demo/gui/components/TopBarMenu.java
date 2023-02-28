@@ -3,6 +3,7 @@ package com.solvd.project.carina.demo.gui.components;
 import com.qaprosoft.carina.core.foundation.webdriver.decorator.ExtendedWebElement;
 import com.qaprosoft.carina.core.gui.AbstractUIObject;
 import com.solvd.project.carina.demo.gui.pages.UpdatePasswordPage;
+import com.solvd.project.carina.demo.components.enums.MenuOption;
 import org.openqa.selenium.SearchContext;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
@@ -15,12 +16,18 @@ public class TopBarMenu extends AbstractUIObject {
     @FindBy(xpath = "//*[text() = 'Change Password']")
     private ExtendedWebElement changePasswordBtn;
 
-    public TopBarMenu(WebDriver driver) {
-        super(driver);
-    }
+    @FindBy(xpath = "//*[@class = 'oxd-topbar-body-nav-tab-item'][text() = '%s']")
+    private ExtendedWebElement sections;
+
+    @FindBy(xpath = "//*[@class = 'oxd-dropdown-menu']//*[text() = '%s']")
+    private ExtendedWebElement subSection;
 
     public TopBarMenu(WebDriver driver, SearchContext searchContext) {
         super(driver, searchContext);
+    }
+
+    public TopBarMenu(WebDriver driver) {
+        super(driver);
     }
 
     public void clickUserNameArrowIcon() {
@@ -30,5 +37,13 @@ public class TopBarMenu extends AbstractUIObject {
     public UpdatePasswordPage clickChangePasswordBtn() {
         changePasswordBtn.click();
         return new UpdatePasswordPage(getDriver());
+    }
+
+    public void clickSection(MenuOption menuOption) {
+        sections.format(menuOption.getMenuOption()).click();
+    }
+
+    public void clickSubSection(MenuOption menuOption) {
+        subSection.format(menuOption.getMenuOption()).click();
     }
 }
