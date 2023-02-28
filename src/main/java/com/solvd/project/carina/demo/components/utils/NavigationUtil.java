@@ -1,7 +1,10 @@
-package com.solvd.project.carina.demo.gui_components.utils;
+package com.solvd.project.carina.demo.components.utils;
 
 
 import com.qaprosoft.carina.core.foundation.AbstractTest;
+import com.solvd.project.carina.demo.components.abstractclass.AbstractOrangeHRMPage;
+import com.solvd.project.carina.demo.components.enums.MenuOption;
+import com.solvd.project.carina.demo.components.exceptions.NoPageExistInMenuException;
 import com.solvd.project.carina.demo.gui.components.LeftBarMenu;
 import com.solvd.project.carina.demo.gui.components.TopBarMenu;
 import com.solvd.project.carina.demo.gui.pages.admin.job.JobTitlePage;
@@ -9,13 +12,10 @@ import com.solvd.project.carina.demo.gui.pages.admin.organization.GeneralInforma
 import com.solvd.project.carina.demo.gui.pages.admin.usermenagement.UserManagementPage;
 import com.solvd.project.carina.demo.gui.pages.pim.AddEmployeePage;
 import com.solvd.project.carina.demo.gui.pages.pim.EmployeeListPage;
-import com.solvd.project.carina.demo.gui_components.abstractclass.AbstractOrangeHRMPage;
-import com.solvd.project.carina.demo.gui_components.enums.MenuOption;
-import com.solvd.project.carina.demo.gui_components.exceptions.NoPageExistInMenuException;
 
 public class NavigationUtil extends AbstractTest {
 
-    public AbstractOrangeHRMPage openPage(MenuOption menuOption) throws NoPageExistInMenuException {
+    public AbstractOrangeHRMPage open(MenuOption menuOption) throws NoPageExistInMenuException {
         LeftBarMenu leftBarMenu = new LeftBarMenu(getDriver());
         TopBarMenu topBarMenu = new TopBarMenu(getDriver());
         switch (menuOption) {

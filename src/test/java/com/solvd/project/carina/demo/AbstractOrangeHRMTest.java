@@ -1,7 +1,7 @@
 package com.solvd.project.carina.demo;
 
 import com.qaprosoft.carina.core.foundation.AbstractTest;
-import com.solvd.project.carina.demo.gui_components.utils.*;
+import com.solvd.project.carina.demo.components.utils.*;
 
 public abstract class AbstractOrangeHRMTest extends AbstractTest {
 

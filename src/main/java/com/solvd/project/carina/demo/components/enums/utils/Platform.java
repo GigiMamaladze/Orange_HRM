@@ -1,6 +1,6 @@
-package com.solvd.project.carina.demo.gui_components.utils.enums;
+package com.solvd.project.carina.demo.components.enums.utils;
 
-import com.solvd.project.carina.demo.gui_components.exceptions.UnknownOsException;
+import com.solvd.project.carina.demo.components.exceptions.UnknownOsException;
 
 public enum Platform {
 

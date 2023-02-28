@@ -1,4 +1,4 @@
-package com.solvd.project.carina.demo.gui_components.enums;
+package com.solvd.project.carina.demo.components.enums;
 
 public enum UserStatus {
 

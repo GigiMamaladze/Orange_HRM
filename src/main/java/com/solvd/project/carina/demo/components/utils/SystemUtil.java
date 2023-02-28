@@ -1,7 +1,7 @@
-package com.solvd.project.carina.demo.gui_components.utils;
+package com.solvd.project.carina.demo.components.utils;
 
-import com.solvd.project.carina.demo.gui_components.exceptions.UnknownOsException;
-import com.solvd.project.carina.demo.gui_components.utils.enums.Platform;
+import com.solvd.project.carina.demo.components.exceptions.UnknownOsException;
+import com.solvd.project.carina.demo.components.enums.utils.Platform;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 

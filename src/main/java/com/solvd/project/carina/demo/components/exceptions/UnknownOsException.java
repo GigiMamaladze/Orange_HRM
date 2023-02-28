@@ -1,4 +1,4 @@
-package com.solvd.project.carina.demo.gui_components.exceptions;
+package com.solvd.project.carina.demo.components.exceptions;
 
 public class UnknownOsException extends Exception {
 

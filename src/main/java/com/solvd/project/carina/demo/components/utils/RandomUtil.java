@@ -1,4 +1,4 @@
-package com.solvd.project.carina.demo.gui_components.utils;
+package com.solvd.project.carina.demo.components.utils;
 
 import java.util.Random;
 

@@ -1,12 +1,12 @@
-package com.solvd.project.carina.demo.gui_components.abstractclass;
+package com.solvd.project.carina.demo.components.abstractclass;
 
 import com.qaprosoft.carina.core.foundation.webdriver.decorator.ExtendedWebElement;
 import com.qaprosoft.carina.core.gui.AbstractPage;
 import com.solvd.project.carina.demo.gui.components.LeftBarMenu;
 import com.solvd.project.carina.demo.gui.components.TopBarMenu;
-import com.solvd.project.carina.demo.gui_components.exceptions.UnknownOsException;
-import com.solvd.project.carina.demo.gui_components.utils.SystemUtil;
-import com.solvd.project.carina.demo.gui_components.utils.enums.Platform;
+import com.solvd.project.carina.demo.components.exceptions.UnknownOsException;
+import com.solvd.project.carina.demo.components.utils.SystemUtil;
+import com.solvd.project.carina.demo.components.enums.utils.Platform;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
