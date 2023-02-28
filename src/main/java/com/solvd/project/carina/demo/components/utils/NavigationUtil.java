@@ -2,7 +2,7 @@ package com.solvd.project.carina.demo.components.utils;
 
 
 import com.qaprosoft.carina.core.foundation.AbstractTest;
-import com.solvd.project.carina.demo.components.abstractclass.AbstractOrangeHRMPage;
+import com.solvd.project.carina.demo.gui.pages.AbstractOrangeHRMPage;
 import com.solvd.project.carina.demo.components.enums.MenuOption;
 import com.solvd.project.carina.demo.components.exceptions.NoPageExistInMenuException;
 import com.solvd.project.carina.demo.gui.components.LeftBarMenu;

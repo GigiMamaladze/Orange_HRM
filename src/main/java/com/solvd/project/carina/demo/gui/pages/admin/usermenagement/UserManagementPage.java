@@ -2,7 +2,7 @@ package com.solvd.project.carina.demo.gui.pages.admin.usermenagement;
 
 import com.qaprosoft.carina.core.foundation.webdriver.decorator.ExtendedWebElement;
 import com.qaprosoft.carina.core.foundation.webdriver.decorator.PageOpeningStrategy;
-import com.solvd.project.carina.demo.components.abstractclass.AbstractOrangeHRMPage;
+import com.solvd.project.carina.demo.gui.pages.AbstractOrangeHRMPage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
 

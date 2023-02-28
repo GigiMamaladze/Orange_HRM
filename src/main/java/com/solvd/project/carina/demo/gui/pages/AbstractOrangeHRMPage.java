@@ -1,4 +1,4 @@
-package com.solvd.project.carina.demo.components.abstractclass;
+package com.solvd.project.carina.demo.gui.pages;
 
 import com.qaprosoft.carina.core.foundation.webdriver.decorator.ExtendedWebElement;
 import com.qaprosoft.carina.core.gui.AbstractPage;
