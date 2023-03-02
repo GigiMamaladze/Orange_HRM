@@ -2,11 +2,11 @@ package com.solvd.project.carina.demo.gui.pages;
 
 import com.qaprosoft.carina.core.foundation.webdriver.decorator.ExtendedWebElement;
 import com.qaprosoft.carina.core.gui.AbstractPage;
-import com.solvd.project.carina.demo.gui.components.LeftBarMenu;
-import com.solvd.project.carina.demo.gui.components.TopBarMenu;
+import com.solvd.project.carina.demo.components.enums.utils.Platform;
 import com.solvd.project.carina.demo.components.exceptions.UnknownOsException;
 import com.solvd.project.carina.demo.components.utils.SystemUtil;
-import com.solvd.project.carina.demo.components.enums.utils.Platform;
+import com.solvd.project.carina.demo.gui.components.LeftBarMenu;
+import com.solvd.project.carina.demo.gui.components.TopBarMenu;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -32,7 +32,6 @@ public abstract class AbstractOrangeHRMPage extends AbstractPage {
     public AbstractOrangeHRMPage(WebDriver driver) {
         super(driver);
     }
-
 
     public TopBarMenu getTopBarMenu() {
         return topBarMenu;

@@ -14,4 +14,6 @@ public abstract class AbstractOrangeHRMTest extends AbstractTest {
     public NavigationUtil navigationUtil = new NavigationUtil();
 
     public ManageEmployeeUtil manageEmployeeUtil = new ManageEmployeeUtil();
+
+    public RecruitmentUtil recruitmentUtil = new RecruitmentUtil();
 }
