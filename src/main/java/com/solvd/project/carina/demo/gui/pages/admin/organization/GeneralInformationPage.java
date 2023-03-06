@@ -3,7 +3,6 @@ package com.solvd.project.carina.demo.gui.pages.admin.organization;
 import com.qaprosoft.carina.core.foundation.webdriver.decorator.ExtendedWebElement;
 import com.qaprosoft.carina.core.foundation.webdriver.decorator.PageOpeningStrategy;
 import com.solvd.project.carina.demo.gui.pages.AbstractOrangeHRMPage;
-import com.solvd.project.carina.demo.components.exceptions.UnknownOsException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
 
@@ -32,7 +31,7 @@ public class GeneralInformationPage extends AbstractOrangeHRMPage {
         editSwitchBtn.click();
     }
 
-    public void clearRegistrationNumber() throws UnknownOsException {
+    public void clearRegistrationNumber() {
         clearTextField(registrationNumberTextField.getElement());
     }
 

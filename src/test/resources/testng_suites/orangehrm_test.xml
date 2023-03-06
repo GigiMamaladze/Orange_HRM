@@ -15,12 +15,6 @@
                     <include name="changePasswordTest"/>
                 </methods>
             </class>
-            <class name="com.solvd.project.carina.demo.PimServiceTest">
-                <methods>
-                    <include name="addEmployeeTest"/>
-                    <include name="searchEmployeeTest"/>
-                </methods>
-            </class>
             <class name="com.solvd.project.carina.demo.AdminServiceTest">
                 <methods>
                     <include name="addUserTest"/>
@@ -28,6 +22,25 @@
                     <include name="addJobTitleTest"/>
                     <include name="deleteJobTitle"/>
                     <include name="generalInformationEditTest"/>
+                </methods>
+            </class>
+            <class name="com.solvd.project.carina.demo.PimServiceTest">
+                <methods>
+                    <include name="addEmployeeTest"/>
+                    <include name="searchEmployeeTest"/>
+                    <include name="addPersonalReportFlowTest"/>
+                    <include name="searchReportTest"/>
+                </methods>
+            </class>
+            <class name="com.solvd.project.carina.demo.RecruitmentServiceTest">
+                <methods>
+                    <include name="addVacancyTest"/>
+                    <include name="addCandidateTest"/>
+                </methods>
+            </class>
+            <class name="com.solvd.project.carina.demo.UserProfileServiceTest">
+                <methods>
+                    <include name="personalDetailsEditTest"/>
                 </methods>
             </class>
         </classes>

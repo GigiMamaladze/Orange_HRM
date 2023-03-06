@@ -3,7 +3,6 @@ package com.solvd.project.carina.demo.gui.pages.pim;
 import com.qaprosoft.carina.core.foundation.webdriver.decorator.ExtendedWebElement;
 import com.qaprosoft.carina.core.foundation.webdriver.decorator.PageOpeningStrategy;
 import com.solvd.project.carina.demo.gui.pages.AbstractOrangeHRMPage;
-import com.solvd.project.carina.demo.components.exceptions.UnknownOsException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
 
@@ -41,7 +40,7 @@ public class AddEmployeePage extends AbstractOrangeHRMPage {
         middleNameTextField.type(middleName);
     }
 
-    public void clearEmployeeIdTextField() throws UnknownOsException {
+    public void clearEmployeeIdTextField() {
         clearTextField(employeeIdTextField.getElement());
     }
 

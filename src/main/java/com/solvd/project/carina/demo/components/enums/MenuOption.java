@@ -9,7 +9,13 @@ public enum MenuOption {
     ADMIN_ORGANIZATION_GENERAL_INFORMATION("General Information"),
 
     PIM("PIM"),
-    PIM_ADD_EMPLOYEE("Add Employee");
+    PIM_ADD_EMPLOYEE("Add Employee"),
+    PIM_REPORTS("Reports"),
+
+    RECRUITMENT("Recruitment"),
+    RECRUITMENT_VACANCIES("Vacancies"),
+
+    MY_INFO("My Info");
 
     private final String menuOption;
 
