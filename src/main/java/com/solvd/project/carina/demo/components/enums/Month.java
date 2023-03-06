@@ -15,17 +15,17 @@ public enum Month {
     NOVEMBER("November", 11),
     DECEMBER("December", 12);
 
-    private final String month;
+    private final String monthName;
 
     private final int monthNumber;
 
-    Month(String month, int monthNumber) {
+    Month(String monthName, int monthNumber) {
         this.monthNumber = monthNumber;
-        this.month = month;
+        this.monthName = monthName;
     }
 
-    public String getMonth() {
-        return month;
+    public String getMonthName() {
+        return monthName;
     }
 
     public int getMonthNumber() {

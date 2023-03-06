@@ -78,7 +78,7 @@ public class PersonalDetailsPage extends AbstractOrangeHRMPage {
 
     public void selectMonth(Month month) {
         monthDropDownBtn.click();
-        this.monthElement.format(month.getMonth()).click();
+        this.monthElement.format(month.getMonthName()).click();
     }
 
     public void selectYear(int year) {

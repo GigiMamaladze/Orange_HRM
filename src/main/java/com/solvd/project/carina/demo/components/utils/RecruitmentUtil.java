@@ -10,8 +10,7 @@ import org.testng.Assert;
 public class RecruitmentUtil extends AbstractTest {
 
     public void addVacancy(String vacancyName, String jobTitle, String hiringManagerFullName) {
-        NavigationUtil navigationUtil = new NavigationUtil();
-        VacanciesPage vacanciesPage = (VacanciesPage) navigationUtil.open(MenuOption.RECRUITMENT_VACANCIES);
+        VacanciesPage vacanciesPage = (VacanciesPage) new NavigationUtil().open(MenuOption.RECRUITMENT_VACANCIES);
         Assert.assertTrue(vacanciesPage.isPageOpened(), "Vacancies Page is not opened");
         AddVacancyPage addVacancyPage = vacanciesPage.clickAddButton();
         Assert.assertTrue(addVacancyPage.isPageOpened(), "Add vacancy page is not opened");

@@ -60,7 +60,7 @@ public class PimServiceTest extends AbstractOrangeHRMTest {
         Assert.assertTrue(addReportPage.isSuccessSaveMessagePresent(), "Successfully saved message is not shown");
         Assert.assertTrue(personalReportFlow.isReportTitlePresent(reportName), "Report title is not created");
         for (PersonalReportColumnTitle p : PersonalReportColumnTitle.values()) {
-            if (p != null && p.getColumnTitle().equals(PersonalReportColumnTitle.MARITAL_STATUS.getColumnTitle())) {
+            if (p.getColumnTitle().equals(PersonalReportColumnTitle.MARITAL_STATUS.getColumnTitle())) {
                 personalReportFlow.scrollToLastColumns();
             }
             Assert.assertTrue(personalReportFlow.isColumnTitlePresent(p), String.format("%s column is not present", p.getColumnTitle()));

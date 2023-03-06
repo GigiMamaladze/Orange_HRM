@@ -11,11 +11,9 @@ import org.testng.Assert;
 public class ManageEmployeeUtil extends AbstractTest {
 
     public void addEmployee(String firstName, String lastName) {
-        NavigationUtil navigationUtil = new NavigationUtil();
-        RandomUtil randomUtil = new RandomUtil();
-        AddEmployeePage addEmployeePage = (AddEmployeePage) navigationUtil.open(MenuOption.PIM_ADD_EMPLOYEE);
+        AddEmployeePage addEmployeePage = (AddEmployeePage) new NavigationUtil().open(MenuOption.PIM_ADD_EMPLOYEE);
         Assert.assertTrue(addEmployeePage.isPageOpened(), "Add employee page is not opened");
-        String id = randomUtil.getRandomNumber(4);
+        String id = new RandomUtil().getRandomNumber(4);
         addEmployeePage.typeFirstName(firstName);
         addEmployeePage.typeLastName(lastName);
         addEmployeePage.clearEmployeeIdTextField();
@@ -25,8 +23,7 @@ public class ManageEmployeeUtil extends AbstractTest {
     }
 
     public void addPersonalReportFlow(String reportName) {
-        NavigationUtil navigationUtil = new NavigationUtil();
-        ReportsPage reportsPage = (ReportsPage) navigationUtil.open(MenuOption.PIM_REPORTS);
+        ReportsPage reportsPage = (ReportsPage) new NavigationUtil().open(MenuOption.PIM_REPORTS);
         Assert.assertTrue(reportsPage.isPageOpened(), "Reports page is not opened");
         AddReportPage addReportPage = reportsPage.clickAddButton();
         Assert.assertTrue(addReportPage.isPageOpened(), "Add report page is not opened");

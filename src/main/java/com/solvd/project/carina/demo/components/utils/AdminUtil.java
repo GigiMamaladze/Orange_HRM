@@ -9,8 +9,7 @@ import org.testng.Assert;
 public class AdminUtil extends AbstractTest {
 
     public void addJobTitle(String jobTitle) {
-        NavigationUtil navigationUtil = new NavigationUtil();
-        JobTitlePage jobTitlePage = (JobTitlePage) navigationUtil.open(MenuOption.ADMIN_JOB_TITLE);
+        JobTitlePage jobTitlePage = (JobTitlePage) new NavigationUtil().open(MenuOption.ADMIN_JOB_TITLE);
         AddJobTitlePage addJobTitlePage = jobTitlePage.clickAddBtn();
         addJobTitlePage.typeJobTitle(jobTitle);
         addJobTitlePage.clickSaveBtn();

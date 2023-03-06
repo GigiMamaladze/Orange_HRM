@@ -50,12 +50,19 @@ public abstract class AbstractOrangeHRMPage extends AbstractPage {
 
     public void clearTextField(WebElement textField) {
         Platform platform = SystemUtil.getSystemOSName();
-        if (platform == Platform.WINDOWS || platform == Platform.LINUX) {
-            textField.sendKeys(Keys.CONTROL + "a");
-        } else if (platform == Platform.MAC) {
-            textField.sendKeys(Keys.COMMAND + "a");
-        }
-        textField.sendKeys(Keys.DELETE);
+        int count = 0;
+        do {
+            if (platform == Platform.WINDOWS || platform == Platform.LINUX) {
+                textField.sendKeys(Keys.CONTROL + "a");
+            } else if (platform == Platform.MAC) {
+                textField.sendKeys(Keys.COMMAND + "a");
+            }
+            textField.sendKeys(Keys.DELETE);
+            count++;
+            if (count >= 5) {
+                break;
+            }
+        } while (!textField.getAttribute("value").isEmpty());
     }
 
     public LeftBarMenu getLeftBarMenu() {
