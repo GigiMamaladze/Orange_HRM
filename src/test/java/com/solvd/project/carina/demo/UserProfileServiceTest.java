@@ -30,7 +30,6 @@ public class UserProfileServiceTest extends AbstractOrangeHRMTest {
         personalDetailsPage.selectMonth(month);
         personalDetailsPage.selectYear(year);
         personalDetailsPage.selectDay(day);
-        personalDetailsPage.scrollToPersonalDetailsSaveButton();
         personalDetailsPage.clickPersonalDetailsSaveButton();
         Assert.assertEquals(personalDetailsPage.getFirstName(), firstName, "First Name is not changed");
         Assert.assertEquals(personalDetailsPage.getLastName(), lastName, "Last name is not changed");

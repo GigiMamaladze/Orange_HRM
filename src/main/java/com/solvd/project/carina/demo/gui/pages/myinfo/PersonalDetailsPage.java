@@ -105,11 +105,8 @@ public class PersonalDetailsPage extends AbstractOrangeHRMPage {
         }
     }
 
-    public void scrollToPersonalDetailsSaveButton() {
-        personalDetailsFormSaveBtn.scrollTo();
-    }
-
     public void clickPersonalDetailsSaveButton() {
+        personalDetailsFormSaveBtn.scrollTo();
         personalDetailsFormSaveBtn.click();
     }
 
