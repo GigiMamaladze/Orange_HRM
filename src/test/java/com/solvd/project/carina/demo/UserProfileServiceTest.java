@@ -2,10 +2,6 @@ package com.solvd.project.carina.demo;
 
 import com.solvd.project.carina.demo.components.enums.MenuOption;
 import com.solvd.project.carina.demo.components.enums.Month;
-import com.solvd.project.carina.demo.components.exceptions.NoPageExistInMenuException;
-import com.solvd.project.carina.demo.components.exceptions.OutDayRangeException;
-import com.solvd.project.carina.demo.components.exceptions.OutYearRangeException;
-import com.solvd.project.carina.demo.components.exceptions.UnknownOsException;
 import com.solvd.project.carina.demo.components.utils.DataFormatUtil;
 import com.solvd.project.carina.demo.gui.pages.myinfo.PersonalDetailsPage;
 import com.zebrunner.carina.core.registrar.ownership.MethodOwner;
@@ -16,7 +12,7 @@ public class UserProfileServiceTest extends AbstractOrangeHRMTest {
 
     @Test
     @MethodOwner(owner = "Gigi")
-    private void personalDetailsEditTest() throws NoPageExistInMenuException, UnknownOsException, OutYearRangeException, OutDayRangeException {
+    private void personalDetailsEditTest() {
         authUtil.logInDefaultUser();
         PersonalDetailsPage personalDetailsPage = (PersonalDetailsPage) navigationUtil.open(MenuOption.MY_INFO);
         Assert.assertTrue(personalDetailsPage.isPageOpened(), "Personal details page is opened");

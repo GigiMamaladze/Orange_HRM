@@ -1,8 +1,6 @@
 package com.solvd.project.carina.demo;
 
 import com.solvd.project.carina.demo.components.enums.MenuOption;
-import com.solvd.project.carina.demo.components.exceptions.NoPageExistInMenuException;
-import com.solvd.project.carina.demo.components.exceptions.UnknownOsException;
 import com.solvd.project.carina.demo.gui.pages.recruitment.*;
 import com.zebrunner.carina.core.registrar.ownership.MethodOwner;
 import org.testng.Assert;
@@ -12,7 +10,7 @@ public class RecruitmentServiceTest extends AbstractOrangeHRMTest {
 
     @Test
     @MethodOwner(owner = "Gigi")
-    public void addVacancyTest() throws NoPageExistInMenuException, UnknownOsException {
+    public void addVacancyTest() {
         authUtil.logInDefaultUser();
         String employeeName = randomUtil.getRandomString(5);
         String employeeLastName = randomUtil.getRandomString(8);
@@ -35,7 +33,7 @@ public class RecruitmentServiceTest extends AbstractOrangeHRMTest {
 
     @Test
     @MethodOwner(owner = "Gigi")
-    public void addCandidateTest() throws NoPageExistInMenuException, UnknownOsException {
+    public void addCandidateTest() {
         authUtil.logInDefaultUser();
         String employeeFirstName = randomUtil.getRandomString(5);
         String employeeLastName = randomUtil.getRandomString(8);

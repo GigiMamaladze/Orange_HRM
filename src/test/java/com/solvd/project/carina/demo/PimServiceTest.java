@@ -1,10 +1,8 @@
 package com.solvd.project.carina.demo;
 
-import com.solvd.project.carina.demo.components.enums.comboboxlist.FieldGroupListItem;
 import com.solvd.project.carina.demo.components.enums.MenuOption;
 import com.solvd.project.carina.demo.components.enums.PersonalReportColumnTitle;
-import com.solvd.project.carina.demo.components.exceptions.NoPageExistInMenuException;
-import com.solvd.project.carina.demo.components.exceptions.UnknownOsException;
+import com.solvd.project.carina.demo.components.enums.comboboxlist.FieldGroupListItem;
 import com.solvd.project.carina.demo.gui.pages.pim.*;
 import com.zebrunner.carina.core.registrar.ownership.MethodOwner;
 import org.testng.Assert;
@@ -14,7 +12,7 @@ public class PimServiceTest extends AbstractOrangeHRMTest {
 
     @Test
     @MethodOwner(owner = "Gigi")
-    public void addEmployeeTest() throws UnknownOsException, NoPageExistInMenuException {
+    public void addEmployeeTest() {
         authUtil.logInDefaultUser();
         AddEmployeePage addEmployeePage = (AddEmployeePage) navigationUtil.open(MenuOption.PIM_ADD_EMPLOYEE);
         Assert.assertTrue(addEmployeePage.isPageOpened(), "Add employee page is not opened");
@@ -35,7 +33,7 @@ public class PimServiceTest extends AbstractOrangeHRMTest {
 
     @Test
     @MethodOwner(owner = "Gigi")
-    public void searchEmployeeTest() throws NoPageExistInMenuException, UnknownOsException {
+    public void searchEmployeeTest() {
         authUtil.logInDefaultUser();
         String employeeName = randomUtil.getRandomString(5);
         String employeeSurname = randomUtil.getRandomString(7);
@@ -48,7 +46,7 @@ public class PimServiceTest extends AbstractOrangeHRMTest {
 
     @Test
     @MethodOwner(owner = "Gigi")
-    public void addPersonalReportFlowTest() throws NoPageExistInMenuException {
+    public void addPersonalReportFlowTest() {
         authUtil.logInDefaultUser();
         ReportsPage reportsPage = (ReportsPage) navigationUtil.open(MenuOption.PIM_REPORTS);
         Assert.assertTrue(reportsPage.isPageOpened(), "Reports page is not opened");
@@ -62,7 +60,7 @@ public class PimServiceTest extends AbstractOrangeHRMTest {
         Assert.assertTrue(addReportPage.isSuccessSaveMessagePresent(), "Successfully saved message is not shown");
         Assert.assertTrue(personalReportFlow.isReportTitlePresent(reportName), "Report title is not created");
         for (PersonalReportColumnTitle p : PersonalReportColumnTitle.values()) {
-            if (p.getColumnTitle().equals(PersonalReportColumnTitle.MARITAL_STATUS.getColumnTitle())) {
+            if (p != null && p.getColumnTitle().equals(PersonalReportColumnTitle.MARITAL_STATUS.getColumnTitle())) {
                 personalReportFlow.scrollToLastColumns();
             }
             Assert.assertTrue(personalReportFlow.isColumnTitlePresent(p), String.format("%s column is not present", p.getColumnTitle()));
@@ -73,7 +71,7 @@ public class PimServiceTest extends AbstractOrangeHRMTest {
 
     @Test
     @MethodOwner(owner = "Gigi")
-    public void searchReportTest() throws NoPageExistInMenuException {
+    public void searchReportTest() {
         authUtil.logInDefaultUser();
         String reportName = randomUtil.getRandomString(5);
         manageEmployeeUtil.addPersonalReportFlow(reportName);

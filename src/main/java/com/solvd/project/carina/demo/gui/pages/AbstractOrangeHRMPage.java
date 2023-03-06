@@ -3,7 +3,6 @@ package com.solvd.project.carina.demo.gui.pages;
 import com.qaprosoft.carina.core.foundation.webdriver.decorator.ExtendedWebElement;
 import com.qaprosoft.carina.core.gui.AbstractPage;
 import com.solvd.project.carina.demo.components.enums.utils.Platform;
-import com.solvd.project.carina.demo.components.exceptions.UnknownOsException;
 import com.solvd.project.carina.demo.components.utils.SystemUtil;
 import com.solvd.project.carina.demo.gui.components.LeftBarMenu;
 import com.solvd.project.carina.demo.gui.components.TopBarMenu;
@@ -49,7 +48,7 @@ public abstract class AbstractOrangeHRMPage extends AbstractPage {
         return successUpdateMessage.isElementPresent();
     }
 
-    public void clearTextField(WebElement textField) throws UnknownOsException {
+    public void clearTextField(WebElement textField) {
         Platform platform = SystemUtil.getSystemOSName();
         if (platform == Platform.WINDOWS || platform == Platform.LINUX) {
             textField.sendKeys(Keys.CONTROL + "a");

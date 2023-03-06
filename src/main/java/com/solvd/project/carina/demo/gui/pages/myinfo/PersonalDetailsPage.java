@@ -5,11 +5,8 @@ import com.qaprosoft.carina.core.foundation.webdriver.decorator.PageOpeningStrat
 import com.solvd.project.carina.demo.components.enums.Month;
 import com.solvd.project.carina.demo.components.exceptions.OutDayRangeException;
 import com.solvd.project.carina.demo.components.exceptions.OutYearRangeException;
-import com.solvd.project.carina.demo.components.exceptions.UnknownOsException;
 import com.solvd.project.carina.demo.gui.pages.AbstractOrangeHRMPage;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 import java.time.Year;
@@ -38,13 +35,16 @@ public class PersonalDetailsPage extends AbstractOrangeHRMPage {
     private ExtendedWebElement personalDetailsFormSaveBtn;
 
     @FindBy(xpath = "//*[@class = '--active oxd-calendar-selector-month']//ul[@role  = 'menu']/li[text() = '%s']")
-    private ExtendedWebElement month;
+    private ExtendedWebElement monthElement;
+
+    @FindBy(xpath = "//*[@class = 'oxd-calendar-selector-month-selected']")
+    private ExtendedWebElement selectedMonth;
 
     @FindBy(xpath = "//*[@class = '--active oxd-calendar-selector-year']//ul[@role  = 'menu']/li[text() = '%s']")
-    private ExtendedWebElement year;
+    private ExtendedWebElement yearElement;
 
     @FindBy(xpath = "//*[@class = 'oxd-calendar-dates-grid']//*[contains(@class, 'oxd-calendar-date-wrapper')]//*[text() = '%s']")
-    private ExtendedWebElement day;
+    private ExtendedWebElement dayElement;
 
     public PersonalDetailsPage(WebDriver driver) {
         super(driver);
@@ -52,7 +52,7 @@ public class PersonalDetailsPage extends AbstractOrangeHRMPage {
         setUiLoadedMarker(formTitle);
     }
 
-    public void clearFirstNameTextField() throws UnknownOsException {
+    public void clearFirstNameTextField() {
         clearTextField(firstNameTextField.getElement());
     }
 
@@ -60,7 +60,7 @@ public class PersonalDetailsPage extends AbstractOrangeHRMPage {
         firstNameTextField.type(firstName);
     }
 
-    public void clearLastNameTextField() throws UnknownOsException {
+    public void clearLastNameTextField() {
         clearTextField(lastNameTextField.getElement());
     }
 
@@ -78,21 +78,20 @@ public class PersonalDetailsPage extends AbstractOrangeHRMPage {
 
     public void selectMonth(Month month) {
         monthDropDownBtn.click();
-        this.month.format(month.getMonth()).click();
+        this.monthElement.format(month.getMonth()).click();
     }
 
-    public void selectYear(int year) throws OutYearRangeException {
+    public void selectYear(int year) {
         yearDropDownBtn.click();
         int currentYear = Year.now().getValue();
         if (year < 1970 || year > currentYear) {
             throw new OutYearRangeException("Year is not in range");
         } else {
-            this.year.format(String.valueOf(year)).click();
+            this.yearElement.format(String.valueOf(year)).click();
         }
     }
 
-    public void selectDay(int day) throws OutDayRangeException {
-        WebElement selectedMonth = driver.findElement(By.xpath("//*[@class = 'oxd-calendar-selector-month-selected']"));
+    public void selectDay(int day) {
         String monthText = selectedMonth.getText().toUpperCase();
         Month monthEnum = Month.valueOf(monthText);
         if (monthEnum == Month.FEBRUARY && day > 28) {
@@ -102,7 +101,7 @@ public class PersonalDetailsPage extends AbstractOrangeHRMPage {
         } else if (day > 31) {
             throw new OutDayRangeException("Day is out of range");
         } else {
-            this.day.format(String.valueOf(day)).click();
+            dayElement.format(String.valueOf(day)).click();
         }
     }
 

@@ -19,7 +19,7 @@ import com.solvd.project.carina.demo.gui.pages.recruitment.VacanciesPage;
 
 public class NavigationUtil extends AbstractTest {
 
-    public AbstractOrangeHRMPage open(MenuOption menuOption) throws NoPageExistInMenuException {
+    public AbstractOrangeHRMPage open(MenuOption menuOption) {
         LeftBarMenu leftBarMenu = new LeftBarMenu(getDriver());
         TopBarMenu topBarMenu = new TopBarMenu(getDriver());
         switch (menuOption) {

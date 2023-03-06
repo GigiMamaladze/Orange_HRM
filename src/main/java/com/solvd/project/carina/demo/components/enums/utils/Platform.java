@@ -8,7 +8,7 @@ public enum Platform {
     MAC,
     LINUX;
 
-    public static Platform getByName(String name) throws UnknownOsException {
+    public static Platform getByName(String name) {
         for (Platform platform : values()) {
             if (platform.name().equalsIgnoreCase(name)) {
                 return platform;
