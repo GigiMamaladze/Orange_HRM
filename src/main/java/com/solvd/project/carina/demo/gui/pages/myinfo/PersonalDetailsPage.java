@@ -5,6 +5,7 @@ import com.qaprosoft.carina.core.foundation.webdriver.decorator.PageOpeningStrat
 import com.solvd.project.carina.demo.components.enums.Month;
 import com.solvd.project.carina.demo.components.exceptions.OutDayRangeException;
 import com.solvd.project.carina.demo.components.exceptions.OutYearRangeException;
+import com.solvd.project.carina.demo.gui.components.UserInformationMenu;
 import com.solvd.project.carina.demo.gui.pages.AbstractOrangeHRMPage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
@@ -15,6 +16,9 @@ public class PersonalDetailsPage extends AbstractOrangeHRMPage {
 
     @FindBy(xpath = "//h6[text() = 'Personal Details']")
     private ExtendedWebElement formTitle;
+
+    @FindBy(css = ".orangehrm-tabs")
+    private UserInformationMenu userInformationMenu;
 
     @FindBy(css = ".orangehrm-firstname")
     private ExtendedWebElement firstNameTextField;
@@ -120,5 +124,9 @@ public class PersonalDetailsPage extends AbstractOrangeHRMPage {
 
     public String getDateOfBirth() {
         return dateOfBirthCalendarTextField.getAttribute("value");
+    }
+
+    public UserInformationMenu getUserInformationMenu() {
+        return userInformationMenu;
     }
 }

@@ -1,4 +1,4 @@
-package com.solvd.project.carina.demo.components.enums.comboboxlist;
+package com.solvd.project.carina.demo.components.enums.selectboxlist;
 
 public enum FieldGroupListItem {
 

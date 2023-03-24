@@ -2,9 +2,10 @@ package com.solvd.project.carina.demo.components.utils;
 
 import com.qaprosoft.carina.core.foundation.AbstractTest;
 import com.solvd.project.carina.demo.components.enums.MenuOption;
-import com.solvd.project.carina.demo.components.enums.comboboxlist.FieldGroupListItem;
+import com.solvd.project.carina.demo.components.enums.selectboxlist.FieldGroupListItem;
 import com.solvd.project.carina.demo.gui.pages.pim.AddEmployeePage;
 import com.solvd.project.carina.demo.gui.pages.pim.AddReportPage;
+import com.solvd.project.carina.demo.gui.pages.pim.PersonalDetailsPage;
 import com.solvd.project.carina.demo.gui.pages.pim.ReportsPage;
 import org.testng.Assert;
 
@@ -18,8 +19,9 @@ public class ManageEmployeeUtil extends AbstractTest {
         addEmployeePage.typeLastName(lastName);
         addEmployeePage.clearEmployeeIdTextField();
         addEmployeePage.typeEmployeeId(id);
-        addEmployeePage.clickSaveBtn();
+        PersonalDetailsPage personalDetailsPage = addEmployeePage.clickSaveBtn();
         Assert.assertTrue(addEmployeePage.isSuccessSaveMessagePresent(), "Successfully saved' message is bot shown");
+        Assert.assertTrue(personalDetailsPage.isPageOpened(), "Personal details page is not opened");
     }
 
     public void addPersonalReportFlow(String reportName) {

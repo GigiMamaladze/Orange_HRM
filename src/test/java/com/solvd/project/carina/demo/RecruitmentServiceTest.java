@@ -57,6 +57,6 @@ public class RecruitmentServiceTest extends AbstractOrangeHRMTest {
         Assert.assertTrue(addCandidatePage.isSuccessSaveMessagePresent(), "Save success message is not shown");
         Assert.assertTrue(createdCandidatePage.isPageOpened(), "Created candidate page is opened");
         navigationUtil.open(MenuOption.RECRUITMENT);
-        Assert.assertTrue(candidatesPage.isCandidatePresentInList(candidateFirstName + "  " + candidateLastName), "Candidate exist in list");
+        Assert.assertTrue(candidatesPage.isCandidatePresentInList(candidateFirstName + "  " + candidateLastName), "Candidate is not exist in list");
     }
 }
