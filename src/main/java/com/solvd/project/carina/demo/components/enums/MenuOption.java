@@ -15,7 +15,14 @@ public enum MenuOption {
     RECRUITMENT("Recruitment"),
     RECRUITMENT_VACANCIES("Vacancies"),
 
-    MY_INFO("My Info");
+    MY_INFO("My Info"),
+
+    DIRECTORY("Directory"),
+
+    MAINTENANCE("Maintenance"),
+    MAINTENANCE_PURGE_RECORDS("Purge Records "),
+    MAINTENANCE_PURGE_RECORDS_CANDIDATE_RECORDS("Candidate Records"),
+    MAINTENANCE_ACCESS_RECORDS("Access Records");
 
     private final String menuOption;
 

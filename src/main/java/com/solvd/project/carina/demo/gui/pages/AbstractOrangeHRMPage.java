@@ -28,6 +28,9 @@ public abstract class AbstractOrangeHRMPage extends AbstractPage {
     @FindBy(xpath = "//*[text() = 'Successfully Updated']")
     private ExtendedWebElement successUpdateMessage;
 
+    @FindBy(xpath = "//*[text() = 'No Records Found']")
+    private ExtendedWebElement noRecordsFoundMessage;
+
     public AbstractOrangeHRMPage(WebDriver driver) {
         super(driver);
     }
@@ -46,6 +49,10 @@ public abstract class AbstractOrangeHRMPage extends AbstractPage {
 
     public boolean isSuccessUpdateMessagePresent() {
         return successUpdateMessage.isElementPresent();
+    }
+
+    public boolean isNoRecordsFoundMessagePresent() {
+        return noRecordsFoundMessage.isElementPresent();
     }
 
     public void clearTextField(WebElement textField) {

@@ -41,9 +41,22 @@
             <class name="com.solvd.project.carina.demo.UserProfileServiceTest">
                 <methods>
                     <include name="personalDetailsEditTest"/>
+                    <include name="contactDetailsEditTest"/>
+                    <include name="emergencyContactEditTest"/>
+                </methods>
+            </class>
+            <class name="com.solvd.project.carina.demo.DirectoryServiceTest">
+                <methods>
+                    <include name="directorySearchTest"/>
+                </methods>
+            </class>
+            <class name="com.solvd.project.carina.demo.MaintenanceServiceTest">
+                <methods>
+                    <include name="maintenancePageTest"/>
+                    <include name="candidateRecordsPurgeTest"/>
+                    <include name="accessRecordsDownloadingTest"/>
                 </methods>
             </class>
         </classes>
     </test>
-
 </suite>

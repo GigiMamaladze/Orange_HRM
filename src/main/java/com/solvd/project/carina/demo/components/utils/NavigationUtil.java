@@ -10,6 +10,10 @@ import com.solvd.project.carina.demo.gui.pages.AbstractOrangeHRMPage;
 import com.solvd.project.carina.demo.gui.pages.admin.job.JobTitlePage;
 import com.solvd.project.carina.demo.gui.pages.admin.organization.GeneralInformationPage;
 import com.solvd.project.carina.demo.gui.pages.admin.usermenagement.UserManagementPage;
+import com.solvd.project.carina.demo.gui.pages.directory.DirectoryPage;
+import com.solvd.project.carina.demo.gui.pages.maintenance.AccessRecordsPage;
+import com.solvd.project.carina.demo.gui.pages.maintenance.AdministratorAccessPage;
+import com.solvd.project.carina.demo.gui.pages.maintenance.CandidateRecordsPurgePage;
 import com.solvd.project.carina.demo.gui.pages.myinfo.PersonalDetailsPage;
 import com.solvd.project.carina.demo.gui.pages.pim.AddEmployeePage;
 import com.solvd.project.carina.demo.gui.pages.pim.EmployeeListPage;
@@ -57,6 +61,19 @@ public class NavigationUtil extends AbstractTest {
             case MY_INFO:
                 leftBarMenu.clickMenuOption(MenuOption.MY_INFO);
                 return new PersonalDetailsPage(getDriver());
+            case DIRECTORY:
+                leftBarMenu.clickMenuOption(MenuOption.DIRECTORY);
+                return new DirectoryPage(getDriver());
+            case MAINTENANCE:
+                leftBarMenu.clickMenuOption(MenuOption.MAINTENANCE);
+                return new AdministratorAccessPage(getDriver());
+            case MAINTENANCE_PURGE_RECORDS_CANDIDATE_RECORDS:
+                topBarMenu.clickSection(MenuOption.MAINTENANCE_PURGE_RECORDS);
+                topBarMenu.clickSubSection(MenuOption.MAINTENANCE_PURGE_RECORDS_CANDIDATE_RECORDS);
+                return new CandidateRecordsPurgePage(getDriver());
+            case MAINTENANCE_ACCESS_RECORDS:
+                topBarMenu.clickSection(MenuOption.MAINTENANCE_ACCESS_RECORDS);
+                return new AccessRecordsPage(getDriver());
             default:
                 throw new NoPageExistInMenuException("Menu is not exist");
         }

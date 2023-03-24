@@ -2,7 +2,7 @@ package com.solvd.project.carina.demo;
 
 import com.solvd.project.carina.demo.components.enums.MenuOption;
 import com.solvd.project.carina.demo.components.enums.PersonalReportColumnTitle;
-import com.solvd.project.carina.demo.components.enums.comboboxlist.FieldGroupListItem;
+import com.solvd.project.carina.demo.components.enums.selectboxlist.FieldGroupListItem;
 import com.solvd.project.carina.demo.gui.pages.pim.*;
 import com.zebrunner.carina.core.registrar.ownership.MethodOwner;
 import org.testng.Assert;
